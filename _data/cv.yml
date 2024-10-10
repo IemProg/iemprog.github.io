@@ -17,19 +17,19 @@
       description:
         - Continual learning in deep learning models
         - Developing distillation methods for vision-language models
-        - Supervisors: Dr. S. Lathuilière, Dr. E. Tartaglione
+        - Supervisors - Dr. S. Lathuilière, Dr. E. Tartaglione
     - title: Master's in Data & AI (PhD Track)
       institution: Institut Polytechnique de Paris, Palaiseau, France
       year: Sept 2020 - 2022
       description:
-        - Mention: With Honors
-        - GPA: 16.41 / 20 (Rank: 2/43 students)
+        - "Mention: With Honors"
+        - "GPA: 16.41 / 20 (Rank: 2/43 students)"
     - title: Undergraduate in Electronics Engineering
       institution: Sorbonne Université (ex-UPMC), Paris, France
       year: Sept 2018 - Feb 2020
       description:
-        - Mention: Good (Bien)
-        - GPA: 15.58 / 20 (Top 3%, 132 students)
+        - "Mention: Good (Bien)"
+        - "GPA: 15.58 / 20 (Top 3%, 132 students)"
 
 - title: Experience
   type: time_table
@@ -40,25 +40,25 @@
       description:
         - Developing a distillation method for continual learning in vision-language models
         - Focus on Visual Question Answering
-        - Supervisor: Pr. Joost Van de Weijer
+        - "Supervisor: Pr. Joost Van de Weijer"
     - title: Machine Learning Consultant
       institution: KOBIL Company (Full-time remote)
       year: Feb 2023 - Nov 2023
       description:
         - Developed a speech-authentication model for Istanbul's SuperApp
-        - Supervisor: Dr. Deniz Kumlu
+        - "Supervisor: Dr. Deniz Kumlu"
     - title: Research Intern
       institution: ENSTA (U2IS Laboratory), Palaiseau, France
       year: April 2021 - Aug 2021
       description:
         - Uncertainty quantification for 3D human pose estimation
-        - Supervisor: Dr. G. Franchi
+        - "Supervisor: Dr. G. Franchi"
     - title: Research Intern
       institution: EPFL (IVRL Laboratory), Lausanne, Switzerland
       year: Feb 2020 - June 2020
       description:
         - Unsupervised IR-RGB joint video registration and fusion
-        - Supervisor: Dr. Hakki Karaimer
+        - "Supervisor: Dr. Hakki Karaimer"
 
 - title: Open Source Projects
   type: time_table
@@ -74,20 +74,20 @@
   type: time_table
   contents:
     - year: 2023-2024
-      items:
+      items: 
         - Erasmus+ Scholarship by IP-Paris
     - year: 2021-2022
-      items:
+      items: 
         - Excellence Scholarship by IP-Paris
     - year: 2020
-      items:
+      items: 
         - Swiss-European Mobility Scholarship
     - year: 2018
-      items:
+      items: 
         - Top-10, Hajj Hackathon, Saudi Arabia
         - Top-10, Algiers SmartCity Competition, Algeria
     - year: 2017
-      items:
+      items: 
         - 3rd Place, National Electronics Competition, INETECK 2017
 
 - title: Academic Interests
@@ -104,4 +104,4 @@
 - title: Other Interests
   type: list
   contents:
-    - item: "Hobbies: Football, Swimming, Skydiving, Photography, Video Editing"
+    - "Hobbies: Football, Swimming, Skydiving, Photography, Video Editing"
