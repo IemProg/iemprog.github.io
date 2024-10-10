@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-I'm excited to begin my research internship at the Computer Vision Center (CVC) Lab in Barcelona, Spain.
+Started a research internship at [Computer Vision Center (CVC) Lab](http://lamp.cvc.uab.es/) in Barcelona, Spain, under the supervision of [Joost van de Weijer](https://scholar.google.com/citations?user=Gsw2iUEAAAAJ&hl=en).
