@@ -1,5 +1,13 @@
-"AJP":
-  url: https://aapt.scitation.org/journal/ajp
+"ECCV":
+  url: https://eccv2024.ecva.net/
+  color: "#00369f"
+
+"WACV":
+  url: https://wacv2025.thecvf.com/
+  color: "#00369f"
+
+"CVPR":
+  url: https://cvpr.thecvf.com/
   color: "#00369f"
 
 "PhysRev":
