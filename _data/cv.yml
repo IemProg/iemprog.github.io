@@ -1,4 +1,4 @@
--  title: General Information
+- title: General Information
   type: map
   contents:
     - name: Full Name
@@ -8,7 +8,7 @@
     - name: Languages
       value: French (Fluent), Arabic (Native), English (Fluent)
 
--  title: Education
+- title: Education
   type: time_table
   contents:
     - title: PhD
@@ -104,4 +104,4 @@
 - title: Other Interests
   type: list
   contents:
-    - Hobbies: Football, Swimming, Skydiving, Photography, Video Editing
+    - item: "Hobbies: Football, Swimming, Skydiving, Photography, Video Editing"
