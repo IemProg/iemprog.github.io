@@ -18,8 +18,8 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+I am a PhD student at the [Institut Polytechnique de Paris](https://www.ip-paris.fr), focusing on Continual Learning and Deep Learning within the Computer Vision domain. My research is supervised by [Dr. Stéphane Lathuilière](http://stelat.eu/) and Dr. Enver Sangineto at the LTCI Laboratory, [Telecom Paris](https://www.telecom-paris.fr/). I am particularly interested in developing parameter-efficient training methods for large models, and continual learning techniques for vision-language models.
 
-Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
+Previously, I interned at the [Computer Vision Center](https://www.cvc.uab.es/) in Barcelona, working on continual learning for Visual Question Answering models under the supervision of [Pr. Joost Van de Weijer](http://www.cvc.uab.es/people/joost/). I hold a Master's degree in Data & AI from [Institut Polytechnique de Paris](https://www.ip-paris.fr) and an undergraduate degree in Electronics from [Sorbonne Université](https://www.sorbonne-universite.fr/).
 
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](https://fontawesome.com/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+My primary research interests are **continual learning** and **multi-modal models**, particularly vision-language models, aiming to explore scalable techniques for model adaptation with minimal fine-tuning, enabling their application in real-world, dynamic environments.

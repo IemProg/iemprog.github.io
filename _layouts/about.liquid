@@ -38,6 +38,8 @@ layout: default
       </div>
     {% endif %}
 
+    <div class="clearfix">{{ content }}</div>
+
     <!-- Social -->
     {% if page.social %}
       <div class="social">
@@ -50,8 +52,6 @@ layout: default
     {% if site.newsletter.enabled and site.footer_fixed %}
       {% include scripts/newsletter.liquid center=true %}
     {% endif %}
-
-    <div class="clearfix">{{ content }}</div>
 
     <!-- News -->
     {% if page.news and site.announcements.enabled %}
