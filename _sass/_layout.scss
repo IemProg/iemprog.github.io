@@ -51,3 +51,70 @@ body.sticky-bottom-footer {
 *****************************************************************************/
 
 // TODO: redefine projects layout.
+
+// Publications
+
+.publications {
+  margin-top: 2rem;
+  
+  .year {
+    border-top: 1px solid $light-gray;
+    color: $light-gray;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    text-align: center;
+  }
+
+  .bibliography {
+    margin-bottom: 2rem;
+    
+    li {
+      margin-bottom: 1rem;
+    }
+
+    .row {
+      .col-sm-2 {
+        img {
+          width: 100%;
+          max-height: 100px;
+          object-fit: cover;
+        }
+      }
+
+      .col-sm-8 {
+        .title {
+          font-weight: bolder;
+          margin-bottom: 0.5rem;
+        }
+
+        .author {
+          font-style: italic;
+          margin-bottom: 0.5rem;
+        }
+
+        .periodical {
+          color: $gray;
+        }
+
+        .links {
+          margin-top: 0.5rem;
+
+          a {
+            margin-right: 0.5rem;
+            color: $gray;
+            border: 1px solid $gray;
+            padding: 0.1rem 0.5rem;
+            border-radius: 3px;
+            font-size: 0.8rem;
+
+            &:hover {
+              color: $theme-color;
+              border-color: $theme-color;
+              text-decoration: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
