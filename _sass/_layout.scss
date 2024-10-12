@@ -93,7 +93,7 @@ body.sticky-bottom-footer {
         }
 
         .periodical {
-          color: #808080;
+          color: var(--global-text-color-light);
         }
 
         .links {
@@ -101,15 +101,15 @@ body.sticky-bottom-footer {
 
           a {
             margin-right: 0.5rem;
-            color: #808080;
-            border: 1px solid $gray;
+            color: var(--global-text-color-light);
+            border: 1px solid var(--global-divider-color);
             padding: 0.1rem 0.5rem;
             border-radius: 3px;
             font-size: 0.8rem;
 
             &:hover {
-              color: $theme-color;
-              border-color: $theme-color;
+              color: var(--global-theme-color);
+              border-color: var(--global-theme-color);
               text-decoration: none;
             }
           }
