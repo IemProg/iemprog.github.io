@@ -1,4 +1,3 @@
-
 ---
 layout: post
 title: a post with formatting and links
@@ -11,7 +10,6 @@ categories: sample-posts
 You've got a million-dollar idea. A SaaS product poised to revolutionize an industry. But how do you know it's not just a pipe dream? The answer, as outlined in Rob Fitzpatrick's insightful book "The Mom Test," lies in talking to potential customers, but not in the way you think. Forget the generic "Would you buy this?" questions. As business creator, you have to master The Mom Test, a revolutionary approach to customer conversations that'll separate the gold from the fool's gold.
 
 In this article, I'll distill the key ideas I've learned from Fitzpatrick's work, and show you how to uncover the hidden truths about your product's potential.
-
 
 The Mom Test isn't about finding validation; it's about unearthing the truth. It's about understanding the real problems your potential customers face, the solutions they've already tried, and what they'd be willing to pay for something better. Think of it as a detective's toolkit for uncovering the hidden desires and frustrations that drive your target market
 
