@@ -1,10 +1,11 @@
 ---
 layout: post
-title: a post with formatting and links
+title: How to Stop Guessing and Start Building Products People Actually Want
 date: 2024-06-18 10:40:15
 description: How to Stop Guessing and Start Building Products People Actually Want: The MOM Test
 tags: https://substack.com/home/post/p-146086378
 categories: sample-posts
+tabs: true
 ---
 
 You've got a million-dollar idea. A SaaS product poised to revolutionize an industry. But how do you know it's not just a pipe dream? The answer, as outlined in Rob Fitzpatrick's insightful book "The Mom Test," lies in talking to potential customers, but not in the way you think. Forget the generic "Would you buy this?" questions. As business creator, you have to master The Mom Test, a revolutionary approach to customer conversations that'll separate the gold from the fool's gold.

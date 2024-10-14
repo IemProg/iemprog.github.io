@@ -5,6 +5,7 @@ date: 2024-06-15 10:40:15
 description: The "Will It Make the Boat Go Faster?" Test: Focus on What Really Matters
 tags: https://imadmarouf.substack.com/p/does-it-make-the-boat-go-faster-focus
 categories: sample-posts
+tabs: true
 ---
 
 In my previous article, "Understanding the Cause-and-Effect Timeframes: The Delayed Gratification Advantage", we explored the powerful connection between our actions and their long-term consequences. We often focus on the immediate, the quick fix, the instant reward. But, real returns, the kind that leaves a lasting impact, isn't built on fleeting wins. It's about understanding that the results we see today are often the culmination of actions taken long ago. You can read the full article [here](https://imadmarouf.substack.com/p/understanding-the-cause-and-effect).

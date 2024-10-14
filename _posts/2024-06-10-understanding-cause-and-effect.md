@@ -1,10 +1,11 @@
 ---
 layout: post
 title: Understanding the Cause-and-Effect Timeframes: The Delayed Gratification Advantage
-date: 2024-06-15 10:40:15
+date: 2024-05-01 00:32:13
 description: The Long Game: Because Life Isn't a Sprint, It's a Marathon (With Some Amazing Views Along the Way)
 tags: https://imadmarouf.substack.com/p/understanding-the-cause-and-effect
 categories: sample-posts
+tabs: true
 ---
 
 We often focus on the immediate, the quick fix, the instant reward. But, real returns, the kind that leaves a lasting impact, isn't built on fleeting wins. It's about understanding the powerful connection between cause and effect, and realising that the results we see today are often the culmination of actions taken long ago.
