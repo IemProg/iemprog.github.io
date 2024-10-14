@@ -5,6 +5,4 @@ inline: true
 related_posts: false
 ---
 
-[CoFiMA](https://arxiv.org/abs/2312.08977) was presented as an Oral paper at ECCV'24, Milan, Italy.
-
----
+[CoFiMA](https://arxiv.org/abs/2312.08977) was presented as an Oral paper (Top 3%) at ECCV'24, Milan, Italy.
