@@ -18,7 +18,6 @@
       html={https://github.com/IemProg/CoFiMA},
       pdf={https://arxiv.org/pdf/2312.08977.pdf},
       abstract={Continual learning (CL) aims to learn from a stream of tasks without forgetting previously acquired knowledge. While most CL methods focus on mitigating catastrophic forgetting, we argue that the key to strong CL performance lies in effectively leveraging knowledge from all tasks. In this work, we propose CoFiMA, a simple yet effective approach that combines fine-tuning and model averaging. CoFiMA maintains a separate model for each task and uses a weighted ensemble for inference. We introduce a novel weighting scheme based on Fisher Information, which effectively balances the contributions of different task models. Our extensive experiments on various CL benchmarks demonstrate that CoFiMA consistently outperforms state-of-the-art methods, often by a significant margin. We provide theoretical insights into why CoFiMA works well and empirically validate its effectiveness in different CL scenarios.},
-      tags={Continual Learning, Ensemble Models}
 }
 
 @InProceedings{Marouf_2024_WACV,
@@ -34,7 +33,6 @@
     html={https://github.com/IemProg/MiMi},
     pdf={https://openaccess.thecvf.com/content/WACV2024/papers/Marouf_Mini_but_Mighty_Finetuning_ViTs_With_Mini_Adapters_WACV_2024_paper.pdf},
     abstract={Vision Transformers (ViTs) have shown remarkable performance across various computer vision tasks. However, finetuning these large models on downstream tasks can be computationally expensive and prone to overfitting. In this paper, we introduce Mini Adapters (MiMi), a lightweight and efficient approach for adapting ViTs to new tasks. MiMi inserts small, task-specific adapters into the ViT architecture, allowing for efficient finetuning while maintaining the pre-trained model's knowledge. Our method significantly reduces the number of trainable parameters and computational cost compared to full finetuning, while achieving comparable or better performance. We demonstrate the effectiveness of MiMi on various image classification tasks and provide insights into its workings through extensive ablation studies.},
-    tags={Vision Transformers, Transfer Learning, Efficient Finetuning}
 }
 
 @article{marouf2024rethinkingclassincremental,
@@ -48,5 +46,4 @@
       html={https://github.com/iemprog/ttacil},
       pdf={https://arxiv.org/pdf/2310.11482.pdf},
       abstract={Class-incremental learning (CIL) aims to continually learn new classes while retaining knowledge of previously learned ones. Traditional CIL methods often struggle with catastrophic forgetting and are computationally expensive. In this paper, we propose a novel approach that leverages large pre-trained models and test-time adaptation for CIL. Our method, TTA-CIL, uses a frozen pre-trained backbone and only updates a small set of parameters during test time to adapt to new classes. This approach significantly reduces computational costs and memory requirements while maintaining high performance across all classes. We demonstrate the effectiveness of TTA-CIL on various benchmark datasets and compare it with state-of-the-art CIL methods.},
-      tags={Class-incremental Learning, Test-time Adaptation, Large Pre-trained Models}
 }
