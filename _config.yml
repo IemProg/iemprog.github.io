@@ -135,7 +135,7 @@ bing_site_verification: # out your bing-site-verification ID (Bing Webmaster)
 blog_name: Imad's Insights # blog_name will be displayed in your blog page
 blog_description: Sharing my thoughts and interesting articles I come across
 permalink: /blog/:year/:title/
-lsi: true # produce an index for related posts
+lsi: false # produce an index for related posts
 
 # Pagination
 pagination:
@@ -164,19 +164,18 @@ giscus:
 disqus_shortname: al-folio # put your disqus shortname
 # https://help.disqus.com/en/articles/1717111-what-s-a-shortname
 
-# External sources.
+## External sources.
 # If you have blog posts published on medium.com or other external sources,
 # you can display them in your blog by adding a link to the RSS feed.
-#external_sources:
-#- name: Medium Blog
-#  posts:
-#    - url: https://substack.com/home/post/p-145672861
-#      published_date: 2024-06-15
+external_sources:
+- name: Medium Blog
+ posts:
+   - url: https://substack.com/home/post/p-145672861
+     published_date: 2024-06-15
 
 # -----------------------------------------------------------------------------
 # Newsletter
 # -----------------------------------------------------------------------------
-
 newsletter:
   enabled: false
   endpoint: # your loops endpoint (e.g., https://app.loops.so/api/newsletter-form/YOUR-ENDPOINT)
