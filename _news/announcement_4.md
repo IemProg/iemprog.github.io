@@ -6,4 +6,3 @@ related_posts: false
 ---
 
 Our paper "Enhancing Plasticity for First Session Adaptation Continual Learning" has been accepted at CoLLAs'2025! :tada:
-
