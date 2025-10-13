@@ -1,8 +1,8 @@
 ---
 layout: post
-date: 2023-01-03 15:59:00-0400
+date: 2025-08-30 15:00:00-0000
 inline: true
 related_posts: false
 ---
 
-Thrilled to share that my work [MiMi](https://arxiv.org/pdf/2311.03873.pdf) will be presented at WACV 2024.
+Our paper "Ask and Remember: A Questions-Only Replay Strategy for Continual Visual Question Answering" has been accepted at ICCV'2025! :tada:
