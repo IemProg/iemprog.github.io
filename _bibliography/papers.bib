@@ -3,6 +3,23 @@
 
 @string{aps = {American Physical Society,}}
 
+@inproceedings{marouf2024cofima,
+  title={Weighted Ensemble Models Are Strong Continual Learners},
+  author={Marouf, Imad Eddine and Roy, Subhankar and Tartaglione, Enzo and Lathuiliere, Stephane},
+  booktitle={European Conference on Computer Vision (ECCV)},
+  year={2024},
+  abbr={ECCV},
+  note={Oral Presentation (Top 3%)},
+  arxiv={2312.08977},
+  code={https://github.com/IemProg/CoFiMA},
+  abstract={In this work, we study the problem of continual learning (CL) where the goal is to learn a model on a sequence of tasks, under the assumption that the data from the previous tasks becomes unavailable while learning on the current task data. CL is essentially a balancing act between learning on the new task (i.e. plasticity) and maintaining the performance on the previously learned concepts (i.e. stability). To address the stability-plasticity trade-off, we propose to perform weight-ensembling of the model parameters of the previous and current tasks. This weighted-ensembled model, which we call Continual Model Averaging (or CoMA), attains high accuracy on the current task by leveraging plasticity, while not deviating too far from the previous weight configuration, ensuring stability. We also propose an improved variant of CoMA, named Continual Fisher-weighted Model Averaging (or CoFiMA), that selectively weighs each parameter in the weights ensemble by leveraging the Fisher information of the weights of the model.},
+  html={https://arxiv.org/abs/2312.08977},
+  pdf={https://arxiv.org/pdf/2312.08977.pdf},
+  preview={cofima_preview.png},
+  selected={true},
+  bibtex_show={true}
+}
+
 @inproceedings{marouf2024mimi,
   title={Mini but Mighty: Finetuning ViTs with Mini Adapters},
   author={Marouf, Imad Eddine and Tartaglione, Enzo and Lathuiliere, Stephane},
@@ -13,6 +30,7 @@
   abstract={Vision Transformers (ViTs) have become one of the dominant architectures in computer vision, and pre-trained ViT models are commonly adapted to new tasks via fine-tuning. Recent works proposed several parameter-efficient transfer learning methods, such as adapters, to avoid the prohibitive training and storage cost of finetuning. In this work, we observe that adapters perform poorly when the dimension of adapters is small, and we propose MiMi, a training framework that addresses this issue. We start with large adapters which can reach high performance, and iteratively reduce their size. To enable automatic estimation of the hidden dimension of every adapter, we also introduce a new scoring function, specifically designed for adapters, that compares the neuron importance across layers. Our method outperforms existing methods in finding the best trade-off between accuracy and trained parameters across the three dataset benchmarks DomainNet, VTAB, and Multi-task, for a total of 29 datasets.},
   html={https://arxiv.org/abs/2311.03873},
   pdf={https://arxiv.org/pdf/2311.03873.pdf},
+  preview={mimi_preview.png},
   selected={true},
   bibtex_show={true}
 }
@@ -28,6 +46,7 @@
   abstract={Continual Learning in Visual Question Answering (VQACL) requires models to acquire new visual-linguistic skills (plasticity) while preserving previously learned knowledge (stability). The inherent multimodality of VQACL exacerbates this challenge, as models must balance stability across visual and textual domains while adapting to novel objects and reasoning tasks. Existing methods, primarily designed for unimodal settings, often fall short in addressing this dual requirement. In this work, we present QUestion-only replay with Attention Distillation (QUAD), a novel approach for VQACL that leverages only past task questions for regularization. By eliminating the need to store visual data, QUAD not only reduces memory overhead, but also alleviates privacy concerns. Our method introduces a Question-only Replay mechanism that selectively reuses prior task questions to counteract overfitting to the answer space of the current task, addressing the problem out of answer set. Complementing this, we propose Attention Consistency Distillation to enforce both intra-modal and inter-modal attention consistency across tasks, preserving essential visual-linguistic associations. Extensive experiments on VQAv2 and NExT-QA demonstrate that QUAD significantly outperforms state-of-the-art methods, achieving robust performance in continual VQA.},
   html={https://arxiv.org/abs/2502.04469},
   pdf={https://arxiv.org/pdf/2502.04469.pdf},
+  preview={quad_main.png},
   selected={true},
   bibtex_show={true}
 }
@@ -43,6 +62,7 @@
   abstract={The integration of large pre-trained models (PTMs) into Class-Incremental Learning (CIL) has facilitated the development of compute-efficient strategies such as First-Session Adaptation (FSA), which fine-tunes the model solely on the first task while keeping it frozen for subsequent tasks. Although effective in homogeneous task sequences, these approaches struggle when faced with the heterogeneity of real-world task distributions. We introduce PLASTIC (Plasticity-Enhanced Test-Time Adaptation in Class-Incremental Learning), a method that reinstates plasticity in CIL while preserving model stability. PLASTIC leverages test-time adaptation to dynamically adjust model parameters during inference, enabling continued learning without catastrophic forgetting. Our comprehensive experiments demonstrate that PLASTIC significantly outperforms existing first-session adaptation methods across various continual learning benchmarks, achieving robust performance while maintaining computational efficiency.},
   html={https://arxiv.org/abs/2310.11482},
   pdf={https://arxiv.org/pdf/2310.11482.pdf},
+  preview={ttacil_preview.png},
   selected={true},
   bibtex_show={true}
 }
