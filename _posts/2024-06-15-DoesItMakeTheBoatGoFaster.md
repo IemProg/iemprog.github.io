@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Does It Make The Boat Go Faster? Focus on Speed Instead of Maintenance for Faster Results
+title: "Does It Make The Boat Go Faster? Focus on Speed Instead of Maintenance for Faster Results"
 date: 2024-06-15 10:40:15
-description: The "Will It Make the Boat Go Faster?" Test: Focus on What Really Matters
+description: "The Will It Make the Boat Go Faster Test: Focus on What Really Matters"
 tags: https://imadmarouf.substack.com/p/does-it-make-the-boat-go-faster-focus
 categories: sample-posts
 tabs: true

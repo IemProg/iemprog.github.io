@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Understanding the Cause-and-Effect Timeframes: The Delayed Gratification Advantage
+title: "Understanding the Cause-and-Effect Timeframes: The Delayed Gratification Advantage"
 date: 2024-05-01 00:32:13
-description: The Long Game: Because Life Isn't a Sprint, It's a Marathon (With Some Amazing Views Along the Way)
+description: "The Long Game: Because Life Isn't a Sprint, It's a Marathon (With Some Amazing Views Along the Way)"
 tags: https://imadmarouf.substack.com/p/understanding-the-cause-and-effect
 categories: sample-posts
 tabs: true
