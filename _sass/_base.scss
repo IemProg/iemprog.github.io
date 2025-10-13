@@ -762,36 +762,37 @@ footer.sticky-bottom {
           border: none;
           transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
           text-decoration: none;
-          box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
           &:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
             text-decoration: none;
           }
 
           &:active {
             transform: translateY(0);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
           }
         }
 
         // PDF button - Red theme
-        a.btn[href*="pdf"], a.btn[href*=".pdf"] {
+        a.btn[href*="pdf"],
+        a.btn[href*=".pdf"] {
           background: linear-gradient(135deg, #e74c3c, #c0392b);
           color: white;
-          
+
           &:hover {
             background: linear-gradient(135deg, #c0392b, #a93226);
             color: white;
           }
         }
 
-        // arXiv button - Green theme  
+        // arXiv button - Green theme
         a.btn[href*="arxiv"] {
           background: linear-gradient(135deg, #27ae60, #229954);
           color: white;
-          
+
           &:hover {
             background: linear-gradient(135deg, #229954, #1e8449);
             color: white;
@@ -799,10 +800,11 @@ footer.sticky-bottom {
         }
 
         // HTML/Website button - Blue theme
-        a.btn[href*="html"], a.btn[href*="http"] {
+        a.btn[href*="html"],
+        a.btn[href*="http"] {
           background: linear-gradient(135deg, #3498db, #2980b9);
           color: white;
-          
+
           &:hover {
             background: linear-gradient(135deg, #2980b9, #21618c);
             color: white;
@@ -810,10 +812,11 @@ footer.sticky-bottom {
         }
 
         // Code/GitHub button - Dark theme
-        a.btn[href*="github"], a.btn[href*="code"] {
+        a.btn[href*="github"],
+        a.btn[href*="code"] {
           background: linear-gradient(135deg, #34495e, #2c3e50);
           color: white;
-          
+
           &:hover {
             background: linear-gradient(135deg, #2c3e50, #1b2631);
             color: white;
@@ -824,7 +827,7 @@ footer.sticky-bottom {
         a.btn.abstract {
           background: linear-gradient(135deg, #9b59b6, #8e44ad);
           color: white;
-          
+
           &:hover {
             background: linear-gradient(135deg, #8e44ad, #7d3c98);
             color: white;
@@ -835,7 +838,7 @@ footer.sticky-bottom {
         a.btn.bibtex {
           background: linear-gradient(135deg, #f39c12, #e67e22);
           color: white;
-          
+
           &:hover {
             background: linear-gradient(135deg, #e67e22, #d35400);
             color: white;
@@ -848,7 +851,7 @@ footer.sticky-bottom {
           color: #2c3e50;
           border: 2px solid #f39c12;
           font-weight: 600;
-          
+
           &:hover {
             background: linear-gradient(135deg, #f39c12, #e67e22);
             border-color: #e67e22;
@@ -857,10 +860,12 @@ footer.sticky-bottom {
         }
 
         // Default button for any others
-        a.btn:not([href*="pdf"]):not([href*="arxiv"]):not([href*="html"]):not([href*="http"]):not([href*="github"]):not([href*="code"]):not(.abstract):not(.bibtex):not(.award) {
+        a.btn:not([href*="pdf"]):not([href*="arxiv"]):not([href*="html"]):not([href*="http"]):not([href*="github"]):not([href*="code"]):not(
+            .abstract
+          ):not(.bibtex):not(.award) {
           background: linear-gradient(135deg, #95a5a6, #7f8c8d);
           color: white;
-          
+
           &:hover {
             background: linear-gradient(135deg, #7f8c8d, #566573);
             color: white;
