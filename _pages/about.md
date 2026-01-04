@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: PhD Student in Machine Learning & Continual Learning
+subtitle: PhD Student in AI, working on continual learning
 
 profile:
   align: right
