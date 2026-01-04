@@ -9,9 +9,30 @@ nav_order: 2
 
 <!-- _pages/publications.md -->
 
-<!-- Bibsearch Feature -->
+<div class="publications-header">
+  <div class="publications-intro">
+    <p>My research focuses on developing efficient training methods for deep learning models, with emphasis on continual learning and vision-language models. Below you'll find my publications organized by year.</p>
+  </div>
 
-{% include bib_search.liquid %}
+  <!-- Publication Stats -->
+  <div class="publication-stats">
+    <div class="stat-card">
+      <div class="stat-number">4</div>
+      <div class="stat-label">Publications</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">2</div>
+      <div class="stat-label">Top-Tier Venues</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">1</div>
+      <div class="stat-label">Oral Presentation</div>
+    </div>
+  </div>
+
+  <!-- Bibsearch Feature -->
+  {% include bib_search.liquid %}
+</div>
 
 <div class="publications">
 
