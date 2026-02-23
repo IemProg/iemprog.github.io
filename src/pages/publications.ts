@@ -35,6 +35,7 @@ PUBLICATIONS.forEach((pub, idx) => {
       <div class="pub-venue">${pub.venue}</div>
       <div class="pub-abstract">${pub.abstract}</div>
       <div class="pub-links">
+        ${pub.paper ? `<a href="${pub.paper}" target="_blank" rel="noopener" class="pub-link">Paper ↗</a>` : ''}
         <a href="${pub.arxiv}" target="_blank" rel="noopener" class="pub-link">arXiv ↗</a>
         ${pub.code ? `<a href="${pub.code}" target="_blank" rel="noopener" class="pub-link">Code ↗</a>` : ''}
         <button class="pub-toggle">Abstract ↓</button>

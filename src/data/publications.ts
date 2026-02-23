@@ -6,6 +6,7 @@ export interface Publication {
   abbr:     string;
   badge:    'oral' | 'spotlight' | 'accepted' | 'preprint';
   arxiv:    string;
+  paper?:   string;  // official proceedings / PDF link
   code?:    string;
   abstract: string;
 }
@@ -19,6 +20,7 @@ export const PUBLICATIONS: Publication[] = [
     abbr:    'ICCV 2025',
     badge:   'accepted',
     arxiv:   'https://arxiv.org/abs/2502.04469',
+    paper:   'https://openaccess.thecvf.com/content/ICCV2025/papers/Marouf_Ask_and_Remember_A_Questions-Only_Replay_Strategy_for_Continual_Visual_ICCV_2025_paper.pdf',
     code:    'https://github.com/IemProg/QUAD',
     abstract: 'We present QUAD, a novel approach for Continual VQA that leverages only past task questions for regularization. By eliminating the need to store visual data, QUAD reduces memory overhead and privacy concerns while achieving state-of-the-art results on VQAv2 and NExT-QA.',
   },
@@ -30,6 +32,7 @@ export const PUBLICATIONS: Publication[] = [
     abbr:    'ECCV 2024',
     badge:   'oral',
     arxiv:   'https://arxiv.org/abs/2312.08977',
+    paper:   'https://link.springer.com/chapter/10.1007/978-3-031-73209-6_18',
     code:    'https://github.com/IemProg/CoFiMA',
     abstract: 'We propose CoFiMA, a Fisher-weighted model averaging approach for continual learning. By selectively ensembling model parameters weighted by Fisher information, CoFiMA achieves an exceptional balance between stability and plasticity. Oral presentation — Top 3%.',
   },
@@ -52,6 +55,7 @@ export const PUBLICATIONS: Publication[] = [
     abbr:    'WACV 2024',
     badge:   'accepted',
     arxiv:   'https://arxiv.org/abs/2311.03873',
+    paper:   'https://openaccess.thecvf.com/content/WACV2024/papers/Marouf_Mini_but_Mighty_Finetuning_ViTs_With_Mini_Adapters_WACV_2024_paper.pdf',
     abstract: 'MiMi is a training framework that progressively compresses adapter dimensions using a novel scoring function for neuron importance. Outperforms existing PETL methods across DomainNet, VTAB, and Multi-task benchmarks (29 datasets).',
   },
 ];
