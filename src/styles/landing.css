@@ -185,6 +185,14 @@
 .pillar-count { font-family: var(--ff-disp); font-weight: 800; font-size: 1.9rem; color: var(--cyan); }
 .cnum         { font-variant-numeric: tabular-nums; }
 .count-label  { font-family: var(--ff-mono); font-size: .65rem; color: var(--text-lo); letter-spacing: .1em; margin-left: .375rem; }
+.pillar-desc  { font-family: var(--ff-mono); font-size: .68rem; color: var(--text-dim); line-height: 1.75; margin-bottom: 1.25rem; }
+.pillar-link  {
+  display: inline-block; font-family: var(--ff-mono); font-size: .6rem;
+  letter-spacing: .12em; text-transform: uppercase; text-decoration: none;
+  color: var(--text-dim); cursor: none;
+  transition: color .2s ease;
+}
+.pillar-link:hover { color: var(--cyan); }
 
 /* =====================================================================
    TERMINAL / SIGNALS
