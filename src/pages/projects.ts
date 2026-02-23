@@ -24,8 +24,8 @@ interface Project {
 const PROJECTS: Project[] = [
   {
     title:    'CurriboxAI',
-    desc:     'AI-powered B2B SaaS platform for personalized learning and curriculum generation. Co-founded and built from zero to product.',
-    tags:     ['AI', 'SaaS', 'Startup', 'LLMs'],
+    desc:     'AI-powered CV management platform for staffing firms. Automates CV processing with GDPR-compliant anonymization, multi-language translation, and custom branding. Co-founded and built from zero to product.',
+    tags:     ['AI', 'SaaS', 'Startup', 'B2B'],
     links:    [{ label: 'Website', url: 'https://curriboxai.com' }],
     featured: true,
   },
