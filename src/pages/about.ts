@@ -1,12 +1,16 @@
 import '../styles/base.css';
 import '../styles/pages.css';
-import { Cursor }  from '../components/Cursor';
+import { Cursor }      from '../components/Cursor';
 import { ThemeToggle } from '../components/ThemeToggle';
+import { InnerScene }  from '../three/InnerScene';
 import { initScrollAnimations } from '../animations/ScrollAnimations';
 import gsap from 'gsap';
 
+const canvas    = document.getElementById('three-canvas') as HTMLCanvasElement;
+const innerScene = new InnerScene(canvas);
+innerScene.start();
 new Cursor();
-new ThemeToggle();
+new ThemeToggle(innerScene);
 initScrollAnimations();
 
 // Mobile menu
