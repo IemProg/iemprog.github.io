@@ -1,10 +1,12 @@
 import '../styles/base.css';
 import '../styles/pages.css';
 import { Cursor }  from '../components/Cursor';
+import { ThemeToggle } from '../components/ThemeToggle';
 import { initScrollAnimations } from '../animations/ScrollAnimations';
 import gsap from 'gsap';
 
 new Cursor();
+new ThemeToggle();
 initScrollAnimations();
 
 // Mobile menu

@@ -109,6 +109,13 @@ export class ParticleSystem {
     this.material.uniforms['uMouse'].value = mouseWorld;
   }
 
+  setTheme(theme: 'dark' | 'light'): void {
+    const isLight = theme === 'light';
+    this.material.uniforms['uColor'].value.set(isLight ? '#004E8A' : '#00D4FF');
+    this.material.blending = isLight ? THREE.NormalBlending : THREE.AdditiveBlending;
+    this.material.needsUpdate = true;
+  }
+
   dispose(): void {
     this.mesh.geometry.dispose();
     this.material.dispose();

@@ -85,6 +85,10 @@ export class GridFloor {
     this.material.uniforms['uVanishX'].value = mouseNDCX;
   }
 
+  setColor(color: string): void {
+    this.material.uniforms['uColor'].value.set(color);
+  }
+
   dispose(): void {
     this.mesh.geometry.dispose();
     this.material.dispose();

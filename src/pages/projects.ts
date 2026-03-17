@@ -2,6 +2,7 @@ import '../styles/base.css';
 import '../styles/pages.css';
 import { Cursor } from '../components/Cursor';
 import { InnerScene } from '../three/InnerScene';
+import { ThemeToggle } from '../components/ThemeToggle';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -9,8 +10,10 @@ gsap.registerPlugin(ScrollTrigger);
 
 // ── Scene ─────────────────────────────────────────────────────────────────────
 const canvas = document.getElementById('three-canvas') as HTMLCanvasElement;
-new InnerScene(canvas).start();
+const innerScene = new InnerScene(canvas);
+innerScene.start();
 new Cursor();
+new ThemeToggle(innerScene);
 
 // ── Data ──────────────────────────────────────────────────────────────────────
 interface Project {

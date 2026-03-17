@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import { ParticleSystem } from './ParticleSystem';
-import { isMobileDevice, prefersReducedMotion } from '../utils/math';
+import { isMobileDevice, prefersReducedMotion, lerp } from '../utils/math';
 
 // ─── Background Atmosphere (shared look with landing page) ───────────────────
 const BG_VERT = /* glsl */ `
@@ -9,16 +9,27 @@ const BG_VERT = /* glsl */ `
 `;
 const BG_FRAG = /* glsl */ `
   uniform float uTime;
+  uniform float uLightMode;
   varying vec2 vUv;
   void main() {
-    vec3 base = vec3(0.0392, 0.0392, 0.059);
     vec2 c1 = vec2(0.18 + sin(uTime*0.07)*0.12, 0.75 + cos(uTime*0.06)*0.10);
     vec2 c2 = vec2(0.82 + cos(uTime*0.08)*0.10, 0.25 + sin(uTime*0.07)*0.10);
     float d1 = 1.0 - smoothstep(0.0, 0.65, length(vUv - c1));
     float d2 = 1.0 - smoothstep(0.0, 0.60, length(vUv - c2));
-    vec3 tone1 = vec3(0.0,  0.08, 0.38) * 0.10;
-    vec3 tone2 = vec3(0.28, 0.0,  0.55) * 0.07;
-    gl_FragColor = vec4(base + tone1*d1 + tone2*d2, 1.0);
+
+    // Dark palette
+    vec3 darkBase  = vec3(0.0392, 0.0392, 0.059);
+    vec3 darkTone1 = vec3(0.0,  0.08, 0.38) * 0.10;
+    vec3 darkTone2 = vec3(0.28, 0.0,  0.55) * 0.07;
+    vec3 darkCol   = darkBase + darkTone1*d1 + darkTone2*d2;
+
+    // Light palette (#F3F4F8)
+    vec3 lightBase  = vec3(0.953, 0.957, 0.973);
+    vec3 lightTone1 = vec3(0.0,  0.20, 0.60) * 0.04;
+    vec3 lightTone2 = vec3(0.30, 0.0,  0.60) * 0.03;
+    vec3 lightCol   = lightBase + lightTone1*d1 + lightTone2*d2;
+
+    gl_FragColor = vec4(mix(darkCol, lightCol, uLightMode), 1.0);
   }
 `;
 
@@ -34,6 +45,13 @@ export class InnerScene {
   private mouseWorld: THREE.Vector2 = new THREE.Vector2();
   private rafId:      number = 0;
 
+  // Reusable color instance — avoids allocation on every setTheme() call
+  private readonly clearColor = new THREE.Color('#0A0A0F');
+  // Typed fog reference — eliminates unsafe `as FogExp2` cast in setTheme()
+  private readonly fog: THREE.FogExp2;
+  // Target for the smooth dark↔light shader transition (lerped in tick)
+  private _lightModeTarget = 0.0;
+
   constructor(canvas: HTMLCanvasElement) {
     const mobile  = isMobileDevice();
     const reduced = prefersReducedMotion();
@@ -46,16 +64,17 @@ export class InnerScene {
     this.renderer.toneMapping         = THREE.ACESFilmicToneMapping;
     this.renderer.toneMappingExposure = 1.15;
     this.renderer.outputColorSpace    = THREE.SRGBColorSpace;
-    this.renderer.setClearColor(new THREE.Color('#0A0A0F'));
+    this.renderer.setClearColor(this.clearColor);
 
     this.camera = new THREE.PerspectiveCamera(
       60, window.innerWidth / window.innerHeight, 0.1, 2000,
     );
     this.camera.position.set(0, 0, 100);
 
-    this.scene = new THREE.Scene();
-    this.scene.fog = new THREE.FogExp2(0x0A0A0F, 0.0018);
-    this.clock    = new THREE.Clock();
+    this.scene     = new THREE.Scene();
+    this.fog       = new THREE.FogExp2(0x0A0A0F, 0.0018);
+    this.scene.fog = this.fog;
+    this.clock     = new THREE.Clock();
 
     this.buildBackground();
 
@@ -73,7 +92,7 @@ export class InnerScene {
     this.bgMat = new THREE.ShaderMaterial({
       vertexShader:   BG_VERT,
       fragmentShader: BG_FRAG,
-      uniforms: { uTime: { value: 0 } },
+      uniforms: { uTime: { value: 0 }, uLightMode: { value: 0.0 } },
       depthWrite: false,
       depthTest:  false,
     });
@@ -105,11 +124,29 @@ export class InnerScene {
 
   private tick = (): void => {
     const t = this.clock.getElapsedTime();
-    if (this.bgMat) this.bgMat.uniforms['uTime'].value = t;
+    if (this.bgMat) {
+      this.bgMat.uniforms['uTime'].value = t;
+      // Smoothly lerp the background shader between dark and light palettes
+      const u = this.bgMat.uniforms['uLightMode'];
+      if (u.value !== this._lightModeTarget) {
+        u.value = lerp(u.value, this._lightModeTarget, 0.07);
+        if (Math.abs(u.value - this._lightModeTarget) < 0.001) u.value = this._lightModeTarget;
+      }
+    }
     this.particles?.update(t, this.mouseWorld);
     this.renderer.render(this.scene, this.camera);
     this.rafId = requestAnimationFrame(this.tick);
   };
+
+  setTheme(theme: 'dark' | 'light'): void {
+    const isLight = theme === 'light';
+    const col     = isLight ? '#F3F4F8' : '#0A0A0F';
+    this.clearColor.set(col);
+    this.renderer.setClearColor(this.clearColor);
+    this.fog.color.set(col);
+    this._lightModeTarget = isLight ? 1.0 : 0.0;
+    this.particles?.setTheme(theme);
+  }
 
   start(): void   { this.rafId = requestAnimationFrame(this.tick); }
 

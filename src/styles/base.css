@@ -324,6 +324,112 @@ body::before {
 .reveal.in { opacity: 1; transform: translateY(0); filter: blur(0); }
 
 /* =====================================================================
+   THEME TOGGLE BUTTON
+===================================================================== */
+.theme-btn {
+  width: 32px; height: 32px;
+  display: flex; align-items: center; justify-content: center;
+  background: none; border: 1px solid var(--border-dim);
+  border-radius: 50%; cursor: none; padding: 0; flex-shrink: 0;
+  color: var(--text-lo);
+  transition: border-color .2s ease, color .2s ease, box-shadow .2s ease;
+}
+.theme-btn:hover {
+  border-color: var(--cyan); color: var(--cyan);
+  box-shadow: 0 0 10px rgba(0,212,255,.18);
+}
+.theme-btn svg { width: 14px; height: 14px; }
+/* Dark mode: show sun icon */
+.theme-btn .icon-sun  { display: block; }
+.theme-btn .icon-moon { display: none; }
+/* Light mode: show moon icon */
+[data-theme="light"] .theme-btn .icon-sun  { display: none; }
+[data-theme="light"] .theme-btn .icon-moon { display: block; }
+[data-theme="light"] .theme-btn:hover {
+  box-shadow: 0 0 10px rgba(0,119,187,.18);
+}
+
+/* =====================================================================
+   LIGHT THEME VARIABLES
+===================================================================== */
+[data-theme="light"] {
+  --bg:          #F3F4F8;
+  --bg-surface:  #EAEBF0;
+  --bg-raised:   #E2E3EA;
+  --cyan:        #0077BB;
+  --blue:        #0044CC;
+  --text-hi:     #080A12;
+  --text-lo:     #3A4A5A;
+  --text-dim:    #7888A0;
+  --border:      rgba(0, 119, 187, 0.12);
+  --border-dim:  rgba(0, 119, 187, 0.22);
+  --border-hi:   rgba(0, 119, 187, 0.65);
+  --glow-sm:     0 0 12px rgba(0,119,187,.25), 0 0 40px rgba(0,119,187,.08);
+  --glow-md:     0 0 24px rgba(0,119,187,.35), 0 0 70px rgba(0,119,187,.12);
+  --glow-lg:     0 0 40px rgba(0,119,187,.50), 0 0 120px rgba(0,119,187,.18);
+}
+
+/* =====================================================================
+   LIGHT THEME — ELEMENT OVERRIDES
+===================================================================== */
+
+/* Film grain — barely visible on light bg */
+[data-theme="light"] body::after { opacity: .006; }
+
+/* Vignette — soft neutral edge on light */
+[data-theme="light"] body::before {
+  background: radial-gradient(ellipse at center, transparent 40%, rgba(180,185,215,.28) 100%);
+}
+
+/* Nav */
+[data-theme="light"] #nav {
+  background: rgba(243,244,248,.90);
+  border-bottom-color: var(--border-dim);
+}
+[data-theme="light"] #nav::after {
+  background: linear-gradient(90deg, transparent, rgba(0,119,187,.22), transparent);
+}
+
+/* Scanline */
+[data-theme="light"] #scanline {
+  background: linear-gradient(90deg, transparent, rgba(0,119,187,.05),
+    rgba(0,119,187,.12), rgba(0,119,187,.05), transparent);
+  box-shadow: 0 0 14px rgba(0,119,187,.06);
+}
+
+/* Cursor */
+[data-theme="light"] #cursor-glow {
+  background: radial-gradient(circle, rgba(0,119,187,.04) 0%, transparent 65%);
+}
+[data-theme="light"] #cursor-ring {
+  border-color: rgba(0,119,187,.60);
+}
+[data-theme="light"] #cursor-ring.hover {
+  background: rgba(0,119,187,.07);
+  border-color: var(--cyan);
+}
+
+/* Mobile menu */
+[data-theme="light"] #mobile-menu {
+  background: rgba(243,244,248,.97);
+}
+
+/* Social rail */
+[data-theme="light"] .s-icon { border-color: rgba(0,119,187,.22); }
+[data-theme="light"] .s-icon svg { fill: rgba(8,10,18,.55); }
+[data-theme="light"] .s-icon:hover { box-shadow: 0 0 14px rgba(0,119,187,.25); }
+[data-theme="light"] .s-tip {
+  background: rgba(243,244,248,.95);
+  border-color: var(--border-dim);
+}
+
+/* Selection */
+[data-theme="light"] ::selection { background: var(--cyan); color: #F3F4F8; }
+
+/* Nav logo glow on light */
+[data-theme="light"] .nav-logo { text-shadow: none; }
+
+/* =====================================================================
    RESPONSIVE
 ===================================================================== */
 @media (max-width: 900px) {
@@ -333,4 +439,5 @@ body::before {
   .hamburger    { display: flex; }
   body          { cursor: auto; }
   #cursor-dot, #cursor-ring, #cursor-glow { display: none; }
+  .theme-btn    { cursor: pointer; }
 }

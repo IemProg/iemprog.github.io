@@ -337,6 +337,56 @@
 .pfc.br { bottom: 7px; right: 7px;  border-width: 0 1px 1px 0; }
 
 /* =====================================================================
+   LIGHT THEME — PAGES OVERRIDES
+===================================================================== */
+
+/* Publications */
+[data-theme="light"] .pub-card:hover {
+  background: rgba(0,119,187,.025);
+  border-color: var(--border-dim);
+}
+[data-theme="light"] .pub-card.pub-oral { background: rgba(255,200,0,.01); }
+[data-theme="light"] .pub-card.pub-oral:hover { background: rgba(255,200,0,.025); }
+[data-theme="light"] .pub-link:hover {
+  color: var(--cyan); border-color: rgba(0,119,187,.4);
+  background: rgba(0,119,187,.04);
+}
+[data-theme="light"] .pub-toggle { color: var(--text-dim); border-color: var(--border); }
+[data-theme="light"] .pub-toggle:hover { color: var(--text-lo); border-color: var(--border-dim); }
+[data-theme="light"] .pub-card.expanded .pub-toggle {
+  color: var(--cyan); border-color: rgba(0,119,187,.4);
+}
+
+/* Blog */
+[data-theme="light"] .blog-card:hover {
+  background: rgba(0,119,187,.025);
+  border-color: var(--border-dim);
+}
+[data-theme="light"] .blog-card.blog-featured {
+  background: rgba(0,119,187,.02);
+  border-color: rgba(0,119,187,.18);
+}
+[data-theme="light"] .blog-read-bar {
+  background: linear-gradient(90deg, var(--cyan), rgba(0,119,187,.15));
+}
+
+/* Projects */
+[data-theme="light"] .proj-card { background: var(--bg-surface); }
+[data-theme="light"] .proj-card:hover {
+  border-color: rgba(0,119,187,.30);
+  box-shadow: 0 0 40px rgba(0,119,187,.07), inset 0 0 30px rgba(0,119,187,.015);
+  background: rgba(0,119,187,.025);
+}
+[data-theme="light"] .proj-card.proj-featured {
+  background: rgba(0,119,187,.02);
+  border-color: rgba(0,119,187,.20);
+}
+[data-theme="light"] .proj-link:hover {
+  color: var(--cyan); border-color: rgba(0,119,187,.4);
+  background: rgba(0,119,187,.04);
+}
+
+/* =====================================================================
    RESPONSIVE
 ===================================================================== */
 @media (max-width: 900px) {
