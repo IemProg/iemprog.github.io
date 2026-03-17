@@ -8,8 +8,9 @@ export class ThemeToggle {
   private current: Theme;
 
   constructor(private target?: ThemeTarget) {
-    const saved = localStorage.getItem('site-theme') as Theme | null;
-    this.current = saved ?? 'dark';
+    const saved  = localStorage.getItem('site-theme') as Theme | null;
+    const system = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    this.current = saved ?? system;
     this.apply(this.current);
     document.getElementById('theme-btn')?.addEventListener('click', () => this.toggle());
   }

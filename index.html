@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +8,7 @@
   <meta property="og:description" content="PhD researcher in AI · Entrepreneur · Endurance Athlete">
   <meta property="og:image"       content="/assets/img/prof_pic_color.jpg">
   <title>Imad Eddine MAROUF</title>
-  <script>try{var t=localStorage.getItem('site-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');}catch(e){}</script>
+  <script>try{var t=localStorage.getItem('site-theme');if(t){document.documentElement.setAttribute('data-theme',t);}else if(window.matchMedia('(prefers-color-scheme: dark)').matches){document.documentElement.setAttribute('data-theme','dark');}}catch(e){}</script>
 </head>
 <body>
   <div id="cursor-glow"></div>
