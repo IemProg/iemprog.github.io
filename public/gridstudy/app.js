@@ -2,8 +2,8 @@
  * Configuration: paste the Google Apps Script web-app URL below (see SETUP.md). Leave '' to run offline
  * (answers are then only kept in this browser and in the "Download my answers" file). */
 'use strict';
-const ENDPOINT = '';
-const CONTACT = '';                 // optional contact e-mail shown on the consent page
+const ENDPOINT = 'https://script.google.com/macros/s/AKfycbya_s1foK2AQwVeFG_ppEhdmz_NlruR8J8zQXLxwBKkb0IPM_Qck84tfs_pY7qxTCUL/exec';
+const CONTACT = 'imad.marouf97@gmail.com';                 // optional contact e-mail shown on the consent page
 const STORE_KEY = 'gridstudy_v4_state';
 const SEND_EVERY = 10;              // also send unsent rows every N trials (besides the end of each block)
 
