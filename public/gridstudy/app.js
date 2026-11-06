@@ -1,11 +1,13 @@
 /* Image grid study: static client. No third-party code, no trackers.
- * Configuration: paste the Google Apps Script web-app URL below (see SETUP.md). Leave '' to run offline
+ * Configuration: the Google Apps Script web-app URL (see SETUP.md). Set ENDPOINT to '' to run offline
  * (answers are then only kept in this browser and in the "Download my answers" file). */
 'use strict';
 const ENDPOINT = 'https://script.google.com/macros/s/AKfycbya_s1foK2AQwVeFG_ppEhdmz_NlruR8J8zQXLxwBKkb0IPM_Qck84tfs_pY7qxTCUL/exec';
 const CONTACT = 'imad.marouf97@gmail.com';                 // optional contact e-mail shown on the consent page
-const STORE_KEY = 'gridstudy_v4_state';
-const SEND_EVERY = 10;              // also send unsent rows every N trials (besides the end of each block)
+const DURATION_TEXT = 'About <b>7&ndash;15 minutes</b>';
+const STORE_KEY = 'gridstudy_v4a4_state';
+const SEND_EVERY = 8;               // also send unsent rows every N screens (besides the end of each part)
+const SMALL_SCREEN = 700;           // px: below this width a friendly "please use a larger screen" notice is shown
 
 /* ---------------- pure helpers (also used by the node test) ---------------- */
 function newPid() {
@@ -111,11 +113,11 @@ if (typeof window !== 'undefined') (function () {
   async function assignForm(n) {
     if (ENDPOINT) {
       try {
-        const ctl = new AbortController(); const tm = setTimeout(() => ctl.abort(), 5000);
-        const r = await fetch(ENDPOINT + '?action=assign', { signal: ctl.signal });
+        const ctl = new AbortController(); const tm = setTimeout(() => ctl.abort(), 6000);
+        const r = await fetch(ENDPOINT + '?action=assign&nforms=' + n, { signal: ctl.signal });
         clearTimeout(tm);
         const j = await r.json();
-        if (Number.isInteger(j.n) && j.n >= 0) return { form: j.n % n, source: 'counter' };
+        if (Number.isInteger(j.n) && j.n >= 0) return { form: j.n % n, source: j.mode === 'least' ? 'least' : 'counter' };
       } catch (e) { /* fall through */ }
     }
     return { form: randomForm(n), source: 'random' };
@@ -127,24 +129,28 @@ if (typeof window !== 'undefined') (function () {
     const ex = DATA.example;
     const strip = ex ? `<div class="hero-strip">` + ex.images.slice(0, 4).map((src, i) =>
       `<img src="${src}" alt="example generated image ${i + 1}">`).join('') + `</div>` : '';
-    app.innerHTML = `<div class="narrow"><h1>Help us see what AI image generators miss</h1>
+    const small = window.innerWidth < SMALL_SCREEN ? `<div class="card notice"><b>Your screen looks small.</b> The images are easier to
+      judge on a computer or a tablet. If you can, please open this page on a larger screen. You can also continue here.</div>` : '';
+    app.innerHTML = `<div class="narrow"><h1>Image grid study</h1>
+      ${small}
       ${strip}
       <div class="card">
-      <p class="lead">AI image generators usually show you a <b>set</b> of images for one request. But are those images really
-      different, or several copies of the same picture? Computers struggle to judge this. <b>Your eyes are the gold
-      standard</b>, and your answers will help make image generators give people more real choice.</p>
-      <div class="steps">
-        <div class="step"><span class="stepnum" style="color:#fff">1</span><b>Compare</b><br>Two sets of images, one text. Click the set that
-        offers more genuinely different images that match the text.</div>
-        <div class="step"><span class="stepnum" style="color:#fff">2</span><b>Count</b><br>Tick the images that match the text and group
-        the near-duplicates.</div>
+      <p class="lead">We study how people compare sets of AI-generated images made for the same text. You will sort images into
+      groups and compare sets of images. There are no right or wrong answers; we are interested in your own judgement.</p>
+      <div class="hero-steps">
+        <div class="step"><span class="stepnum">1</span><b>Sort</b><br>Tick the images that match the text, and sort them into
+        groups of near-duplicates, by your own judgement.</div>
+        <div class="step"><span class="stepnum">2</span><b>Compare</b><br>Two sets of images for one text. Choose the set that offers
+        more genuinely different images that match the text.</div>
       </div>
-      <p class="time">About <b>7&ndash;15 minutes</b>, at your own pace. A progress bar shows how far you are. A computer
-      works best; a phone works too.</p>
+      <p class="time">${DURATION_TEXT}, at your own pace. A progress bar shows how far you are.
+      Please use a computer or a tablet (a large screen is needed).</p>
       <details><summary>Your privacy and consent (please read)</summary>
       <ul><li>Participation is voluntary and unpaid. You can stop at any time; answers given until then may be used.</li>
       <li>We do not ask for your name, e-mail or any personal information. You get a random code; your answers are stored under it.</li>
+      <li>Your answers are stored on Google servers (Google Sheets).</li>
       <li>Answers are used only for research, reported in aggregate, and may be published as an anonymous data set.</li>
+      <li>If you want your answers removed later, send us the code shown at the end.</li>
       <li>The images are AI-generated test images of everyday scenes and objects.</li>
       <li>You must be 18 or older to take part.</li></ul></details>
       <p class="muted">By clicking &ldquo;I agree, start&rdquo; you confirm that you have read the privacy and consent
@@ -158,7 +164,7 @@ if (typeof window !== 'undefined') (function () {
       $('yes').disabled = true;
       const pid = newPid();
       const { form, source } = await assignForm(DATA.n_forms);
-      S = { v: 'v4', pid, form, form_source: source, stage: 'instr', plan: buildPlan(DATA, pid, form), idx: { pair: 0, count: 0 }, rows: [], sent: 0, t_start: Date.now() };
+      S = { v: 'v4a4', pid, form, form_source: source, stage: 'instr', plan: buildPlan(DATA, pid, form), idx: { pair: 0, count: 0 }, rows: [], sent: 0, t_start: Date.now() };
       addRow({ block: 'meta', trial_id: 'consent', response: JSON.stringify({ form_source: source, vw: window.innerWidth, vh: window.innerHeight,
         touch: ('ontouchstart' in window), lang: navigator.language || '' }), rt_ms: '' });
       flush(); instructions();
@@ -170,17 +176,21 @@ if (typeof window !== 'undefined') (function () {
       const ok = ex.correct.includes(i);
       return `<div class="tile ${ok ? 'ok' : ''}"><img src="${src}" alt="example image ${i + 1}"><span class="num">${i + 1}</span>
         ${ok ? '<span class="tick">&#10003;</span>' : ''}${ok && upto >= 2 ? `<span class="grp">${ex.groups[i]}</span>` : ''}</div>`;
-    }).join('') + `</div>`;
+    }).join('') + `</div>` + (ex.caption ? `<p class="muted caption">${esc(ex.caption)}</p>` : '');
+  }
+  function exampleBlock(ex) {
+    return `<p class="prompt">Text: <b>&ldquo;${esc(ex.prompt)}&rdquo;</b></p>${exampleGrid(ex, 2)}
+      <ul class="notes">${ex.notes.map(n => `<li>${esc(n)}</li>`).join('')}</ul>`;
   }
   function definitions() {
     return `<h2>Two words we use</h2>
       <p><b>Correct</b>: the image shows everything the text asks for. Every named object is there and recognisable; counts are
       exact ("four chairs" means exactly four); colours named in the text are right; positions named in the text are right
       ("a dog left of a cup"). Image quality and style do not matter unless they make an object unrecognisable.</p>
-      <p><b>Genuinely different</b>: two correct images are genuinely different if a person choosing an image would see them as
-      two real alternatives: a different arrangement or position of the objects, a clearly different viewpoint or framing,
-      a different setting or style, or a different colour of something whose colour the text leaves open. Two images are
-      <b>near-duplicates</b> if they are basically the same picture: same arrangement, same colours, similar look.</p>`;
+      <p><b>Genuinely different</b>: imagine you typed the text and are choosing one image. Two correct images are
+      <i>genuinely different</i> if you would see them as two different options to choose from. If you would see them as
+      basically the same picture, they are <i>near-duplicates</i>. What makes two images different options is <b>your own
+      judgement</b>. There are no right or wrong answers, and we do not expect any particular kind of difference to count.</p>`;
   }
   function instructions() {
     S.stage = 'instr'; save(); progress(); setKeys(null);
@@ -189,19 +199,18 @@ if (typeof window !== 'undefined') (function () {
       <p>Each screen shows the <b>text</b> that someone typed into an image generator, and images generated for it.
       Imagine you typed that text and want to pick an image from what the generator gives you.</p>
       ${definitions()}
-      <h2>Part 1: which set offers more?</h2>
-      <p>You see two sets of 8 images for the same text. Choose the set that offers <b>more genuinely different images that
-      correctly show the text</b>, or "about the same". Keys: <kbd>&larr;</kbd> set 1, <kbd>&rarr;</kbd> set 2,
-      <kbd>space</kbd> about the same. Click an image to enlarge it. Your first impression is fine: about 10 seconds per screen.</p>
-      <h2>Part 2: count the different correct images</h2>
+      <h2>Part 1: sort the correct images (${S.plan.count.length} screens)</h2>
       <p>You see one set of 8 images. (1) Click every image that is correct. (2) Put the correct images into groups: images that
-      are near-duplicates get the same letter, genuinely different images get different letters. (3) If two groups differ
-      <i>only</i> in colour, mark it.</p>
-      ${ex ? `<h2>Worked example</h2><p class="prompt">Text: <b>&ldquo;${esc(ex.prompt)}&rdquo;</b></p>${exampleGrid(ex, 2)}
-      <ul class="notes">${ex.notes.map(n => `<li>${esc(n)}</li>`).join('')}</ul>` : ''}
-      <p class="muted">A few screens are simple checks of attention. There are no right or wrong answers about taste.</p>
+      you see as basically the same picture get the same letter; images you see as different options get different letters.
+      (3) Some images differ only in the colour of something. A last step asks how you handled that; there is no preferred answer.</p>
+      ${ex ? `<h2>Worked example</h2>${exampleBlock(ex)}` : ''}
+      <h2>Part 2: compare two sets (${S.plan.pair.length} screens)</h2>
+      <p>You see two sets of 8 images for the same text and choose the set that offers more genuinely different images that
+      correctly show the text, or "about the same".</p>
+      <p class="muted">Take the time you need; most screens take 10&ndash;20 seconds in part 2 and a little longer in part 1.
+      A few screens are simple checks of attention.</p>
       <div class="row"><button class="btn primary" id="go">Start part 1</button></div></div>`;
-    $('go').onclick = () => { S.stage = 'pair'; save(); window.scrollTo(0, 0); next(); };
+    $('go').onclick = () => { S.stage = 'count'; save(); window.scrollTo(0, 0); next(); };
   }
 
   function preload(id) {
@@ -214,6 +223,19 @@ if (typeof window !== 'undefined') (function () {
     if (!imgs.length) cb();
   }
 
+  function pairIntro() {
+    S.stage = 'pair_intro'; save(); progress(); setKeys(null); flush();
+    app.innerHTML = `<div class="narrow"><h1>Part 2: compare two sets</h1>
+      <p>Part 1 is done, thank you. In part 2 you see two sets of 8 images for the same text (${S.plan.pair.length} screens).
+      Choose the set that offers <b>more genuinely different images that correctly show the text</b>, or "about the same".
+      Use your own sense of what makes images different options.</p>
+      <p>Keys: <kbd>&larr;</kbd> set 1, <kbd>&rarr;</kbd> set 2, <kbd>space</kbd> about the same. Click an image to enlarge it.
+      Take the time you need; most screens take 10&ndash;20 seconds.</p>
+      <details><summary>Show the definitions again</summary>${definitions()}</details>
+      <div class="row" style="margin-top:12px"><button class="btn primary" id="go">Start part 2</button></div></div>`;
+    $('go').onclick = () => { S.stage = 'pair'; save(); next(); };
+  }
+
   function pairTrial() {
     const i = S.idx.pair, id = S.plan.pair[i], t = DATA.trials[id];
     const swap = S.plan.swap[id];
@@ -221,9 +243,10 @@ if (typeof window !== 'undefined') (function () {
     progress(); window.scrollTo(0, 0);
     app.innerHTML = `<p class="prompt">Text: <b>&ldquo;${esc(t.prompt)}&rdquo;</b></p>
       <p class="q">Which set offers more genuinely different images that correctly show the text?</p>
+      <p class="muted sub">Use your own sense of what makes images different options.</p>
       <div class="pairwrap">${shown.map((g, s) => `<div class="set"><div class="setlabel">Set ${s + 1}</div><div class="g4">${g.map(src => `<img src="${src}" alt="">`).join('')}</div></div>`).join('')}</div>
       <div class="row choices center"><button class="btn" id="c0">&larr; Set 1</button><button class="btn" id="cs">About the same (space)</button><button class="btn" id="c1">Set 2 &rarr;</button></div>
-      <p class="muted" style="text-align:center">Screen ${i + 1} of ${S.plan.pair.length} in part 1. Click an image to enlarge it.</p>`;
+      <p class="muted" style="text-align:center">Screen ${i + 1} of ${S.plan.pair.length} in part 2. Click an image to enlarge it.</p>`;
     app.querySelectorAll('.g4 img').forEach(im => im.addEventListener('click', () => openLB(im.src)));
     const tShow = performance.now(); let tLoad = null;
     whenLoaded(Array.from(app.querySelectorAll('.g4 img')), () => { tLoad = performance.now(); });
@@ -245,34 +268,20 @@ if (typeof window !== 'undefined') (function () {
     });
   }
 
-  function countIntro() {
-    S.stage = 'count_intro'; save(); progress(); setKeys(null); flush();
-    const ex = DATA.example;
-    app.innerHTML = `<div class="narrow"><h1>Part 2: count the different correct images</h1>
-      <p>Part 1 is done, thank you. In part 2 you see one set of 8 images per screen (${S.plan.count.length} screens).</p>
-      <ol><li><b>Tick</b>: click every image that correctly shows the text (click again to undo).</li>
-      <li><b>Group</b>: choose a letter, then click the images that belong to it. Near-duplicates share a letter; genuinely different images get different letters.</li>
-      <li><b>Colour</b>: if a group is the same picture as an earlier group <i>except for colour</i>, say so.</li></ol>
-      ${definitions()}
-      ${ex ? `<details><summary>Show the worked example again</summary><p class="prompt">Text: <b>&ldquo;${esc(ex.prompt)}&rdquo;</b></p>${exampleGrid(ex, 2)}
-      <ul class="notes">${ex.notes.map(n => `<li>${esc(n)}</li>`).join('')}</ul></details>` : ''}
-      <div class="row" style="margin-top:12px"><button class="btn primary" id="go">Start part 2</button></div></div>`;
-    $('go').onclick = () => { S.stage = 'count'; save(); next(); };
-  }
-
   function countTrial() {
     const i = S.idx.count, id = S.plan.count[i], t = DATA.trials[id], imgs = t.grids[0];
     progress(); window.scrollTo(0, 0);
-    const st = { step: 1, ok: new Set(), groups: {}, cur: 'A', colour: {}, tShow: performance.now(), tLoad: null, steps: [] };
+    const st = { step: 1, ok: new Set(), groups: {}, cur: 'A', colour: {}, merge: false, bulk: '', tShow: performance.now(), tLoad: null, log: [] };
     const letters = 'ABCDEFGH'.split('');
+    const ms = () => Math.round(performance.now() - st.tShow);
     function render() {
       const usedL = Array.from(new Set(Object.values(st.groups))).sort();
       app.innerHTML = `<p class="prompt">Text: <b>&ldquo;${esc(t.prompt)}&rdquo;</b></p>
-        <div class="steps"><span class="${st.step === 1 ? 'on' : ''}">1 Tick correct</span><span class="${st.step === 2 ? 'on' : ''}">2 Group</span><span class="${st.step === 3 ? 'on' : ''}">3 Colour</span>
-          <span class="muted" style="border:0">Screen ${i + 1} of ${S.plan.count.length}</span></div>
+        <div class="csteps"><span class="${st.step === 1 ? 'on' : ''}">1 Tick correct</span><span class="${st.step === 2 ? 'on' : ''}">2 Group</span><span class="${st.step === 3 ? 'on' : ''}">3 Colour</span>
+          <span class="muted plain">Screen ${i + 1} of ${S.plan.count.length} in part 1</span></div>
         <p class="q">${st.step === 1 ? 'Click every image that correctly shows the text.' :
-          st.step === 2 ? 'Choose a letter, then click images to put them in that group. Near-duplicates share a letter.' :
-          'Does any group show the same picture as an earlier group, except for colour?'}</p>
+          st.step === 2 ? 'Choose a letter, then click images to put them in that group. Images you see as basically the same picture share a letter.' :
+          'Some images differ only in the colour of something. How did you handle that? There is no preferred answer.'}</p>
         ${st.step === 2 ? `<div class="palette">${letters.slice(0, Math.max(1, Math.min(8, st.ok.size))).map(L => `<button class="btn ${st.cur === L ? 'on' : ''}" data-l="${L}">${L}</button>`).join('')}
           <button class="btn" id="alldiff">All different</button><button class="btn" id="allsame">All one group</button></div>` : ''}
         <div class="cgrid">${imgs.map((src, k) => {
@@ -283,20 +292,22 @@ if (typeof window !== 'undefined') (function () {
         }).join('')}</div>
         ${st.step === 3 ? `<div class="card links">${usedL.slice(1).map((L, q) => `<div>Group <b>${L}</b> is the same picture as
           <select data-g="${L}"><option value="">no other group</option>${usedL.slice(0, q + 1).map(P => `<option value="${P}" ${st.colour[L] === P ? 'selected' : ''}>group ${P}</option>`).join('')}</select>
-          except for colour</div>`).join('')}</div>` : ''}
+          except for colour</div>`).join('')}
+          <div><label><input type="checkbox" id="merge" ${st.merge ? 'checked' : ''}> Some images that I put in the <b>same</b> group differ in the colour of something.</label></div></div>` : ''}
         <div class="err" id="err"></div>
         <div class="row">${st.step > 1 ? '<button class="btn" id="back">Back</button>' : ''}
-          <button class="btn primary" id="nextb">${st.step === 1 ? (st.ok.size ? 'Next: group them' : 'None is correct: next screen') : st.step === 2 && usedL.length >= 2 ? 'Next: colour' : 'Save and continue'}</button></div>`;
+          <button class="btn primary" id="nextb">${st.step === 1 ? (st.ok.size ? 'Next: group them' : 'None is correct: next screen') : st.step === 2 ? 'Next: colour' : 'Save and continue'}</button></div>`;
       app.querySelectorAll('.zoom').forEach(b => b.addEventListener('click', ev => { ev.stopPropagation(); openLB(imgs[+b.dataset.z]); }));
       app.querySelectorAll('.tile').forEach(el => el.addEventListener('click', () => {
         const k = +el.dataset.k;
-        if (st.step === 1) { st.ok.has(k) ? st.ok.delete(k) : st.ok.add(k); st.steps.push(['t', k, Math.round(performance.now() - st.tShow)]); render(); }
-        else if (st.step === 2 && st.ok.has(k)) { if (st.groups[k] === st.cur) delete st.groups[k]; else st.groups[k] = st.cur; render(); }
+        if (st.step === 1) { st.ok.has(k) ? st.ok.delete(k) : st.ok.add(k); st.log.push(['t', k, ms()]); render(); }
+        else if (st.step === 2 && st.ok.has(k)) { if (st.groups[k] === st.cur) delete st.groups[k]; else st.groups[k] = st.cur; st.bulk = ''; st.log.push(['g', k, st.cur, ms()]); render(); }
       }));
       app.querySelectorAll('.palette [data-l]').forEach(b => b.addEventListener('click', () => { st.cur = b.dataset.l; render(); }));
-      if ($('alldiff')) $('alldiff').onclick = () => { st.groups = {}; Array.from(st.ok).sort((a, b) => a - b).forEach((k, q) => { st.groups[k] = letters[Math.min(q, 7)]; }); render(); };
-      if ($('allsame')) $('allsame').onclick = () => { st.groups = {}; st.ok.forEach(k => { st.groups[k] = 'A'; }); render(); };
-      app.querySelectorAll('select[data-g]').forEach(s => s.addEventListener('change', () => { if (s.value) st.colour[s.dataset.g] = s.value; else delete st.colour[s.dataset.g]; }));
+      if ($('alldiff')) $('alldiff').onclick = () => { st.groups = {}; Array.from(st.ok).sort((a, b) => a - b).forEach((k, q) => { st.groups[k] = letters[Math.min(q, 7)]; }); st.bulk = 'alldiff'; st.log.push(['alldiff', ms()]); render(); };
+      if ($('allsame')) $('allsame').onclick = () => { st.groups = {}; st.ok.forEach(k => { st.groups[k] = 'A'; }); st.bulk = 'allsame'; st.log.push(['allsame', ms()]); render(); };
+      app.querySelectorAll('select[data-g]').forEach(s => s.addEventListener('change', () => { if (s.value) st.colour[s.dataset.g] = s.value; else delete st.colour[s.dataset.g]; st.log.push(['c', s.dataset.g, s.value, ms()]); }));
+      if ($('merge')) $('merge').addEventListener('change', e => { st.merge = e.target.checked; st.log.push(['m', st.merge ? 1 : 0, ms()]); });
       if ($('back')) $('back').onclick = () => { st.step--; render(); };
       $('nextb').onclick = advance;
       if (st.tLoad === null) whenLoaded(Array.from(app.querySelectorAll('.cgrid img')), () => { if (st.tLoad === null) st.tLoad = performance.now(); });
@@ -311,10 +322,8 @@ if (typeof window !== 'undefined') (function () {
       if (st.step === 2) {
         const miss = Array.from(st.ok).filter(k => !st.groups[k]);
         if (miss.length) { $('err').textContent = `Please give a letter to every ticked image (missing: ${miss.map(k => k + 1).join(', ')}).`; return; }
-        const n = normalizeGroups(st.groups, {});
-        st.groups = n.groups;
-        st.colour = normalizeGroups(st.groups, st.colour).colour;
-        if (n.nGroups < 2) return finish();
+        const n = normalizeGroups(st.groups, st.colour);
+        st.groups = n.groups; st.colour = n.colour;
         st.step = 3; return render();
       }
       finish();
@@ -323,8 +332,8 @@ if (typeof window !== 'undefined') (function () {
       if (busy) return; busy = true;
       const now = performance.now();
       const n = normalizeGroups(st.groups, st.colour);
-      const resp = { correct: Array.from(st.ok).sort((a, b) => a - b), groups: n.groups, colour: n.colour,
-        n_correct: st.ok.size, n_groups: n.nGroups, n_layout_groups: layoutGroups(n.nGroups, n.colour) };
+      const resp = { correct: Array.from(st.ok).sort((a, b) => a - b), groups: n.groups, colour: n.colour, colour_merge: st.ok.size >= 2 ? st.merge : null,
+        n_correct: st.ok.size, n_groups: n.nGroups, n_layout_groups: layoutGroups(n.nGroups, n.colour), bulk: st.bulk, log: st.log };
       addRow({ block: 'count', trial_id: id, response: JSON.stringify(resp), rt_ms: Math.round(now - (st.tLoad || st.tShow)), rt_total_ms: Math.round(now - st.tShow), n_in_block: i + 1 });
       S.idx.count++; save();
       if (S.idx.count % SEND_EVERY === 0) flush();
@@ -349,9 +358,9 @@ if (typeof window !== 'undefined') (function () {
   }
 
   function next() {
-    if (S.stage === 'pair') { if (S.idx.pair < S.plan.pair.length) return pairTrial(); flush(); return countIntro(); }
-    if (S.stage === 'count_intro') return countIntro();
-    if (S.stage === 'count') { if (S.idx.count < S.plan.count.length) return countTrial(); flush(); return done(); }
+    if (S.stage === 'count') { if (S.idx.count < S.plan.count.length) return countTrial(); return pairIntro(); }
+    if (S.stage === 'pair_intro') return pairIntro();
+    if (S.stage === 'pair') { if (S.idx.pair < S.plan.pair.length) return pairTrial(); flush(); return done(); }
     if (S.stage === 'instr') return instructions();
     return done();
   }
@@ -369,7 +378,7 @@ if (typeof window !== 'undefined') (function () {
   fetch('trials.json', { cache: 'no-cache' }).then(r => r.json()).then(d => {
     DATA = d;
     const old = load();
-    if (old && old.v === 'v4' && old.plan && DATA.forms[old.form] && old.plan.pair.concat(old.plan.count).every(id => DATA.trials[id])) { S = old; return old.stage === 'done' ? done() : resumeScreen(); }
+    if (old && old.v === 'v4a4' && old.plan && DATA.forms[old.form] && old.plan.pair.concat(old.plan.count).every(id => DATA.trials[id])) { S = old; return old.stage === 'done' ? done() : resumeScreen(); }
     consent();
   }).catch(() => { app.innerHTML = '<p class="err">Could not load the study files. Please reload the page.</p>'; });
 })();
