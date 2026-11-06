@@ -86,3 +86,4 @@ ul.notes li { margin: 4px 0; }
 .time { margin: 10px 0; }
 details { margin: 8px 0; } summary { cursor: pointer; font-weight: 600; }
 @media (max-width: 560px) { .steps { grid-template-columns: 1fr; } .hero-strip { grid-template-columns: repeat(2, 1fr); } }
+.step .stepnum { color: #fff !important; font-size: 0.9em; vertical-align: middle; }

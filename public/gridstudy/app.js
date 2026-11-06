@@ -134,12 +134,12 @@ if (typeof window !== 'undefined') (function () {
       different, or several copies of the same picture? Computers struggle to judge this. <b>Your eyes are the gold
       standard</b>, and your answers will help make image generators give people more real choice.</p>
       <div class="steps">
-        <div class="step"><span class="stepnum">1</span><b>Compare</b><br>Two sets of images, one text. Click the set that
+        <div class="step"><span class="stepnum" style="color:#fff">1</span><b>Compare</b><br>Two sets of images, one text. Click the set that
         offers more genuinely different images that match the text.</div>
-        <div class="step"><span class="stepnum">2</span><b>Count</b><br>Tick the images that match the text and group
+        <div class="step"><span class="stepnum" style="color:#fff">2</span><b>Count</b><br>Tick the images that match the text and group
         the near-duplicates.</div>
       </div>
-      <p class="time">&#9201; About <b>7&ndash;15 minutes</b>, at your own pace. A progress bar shows how far you are. A computer
+      <p class="time">About <b>7&ndash;15 minutes</b>, at your own pace. A progress bar shows how far you are. A computer
       works best; a phone works too.</p>
       <details><summary>Your privacy and consent (please read)</summary>
       <ul><li>Participation is voluntary and unpaid. You can stop at any time; answers given until then may be used.</li>
