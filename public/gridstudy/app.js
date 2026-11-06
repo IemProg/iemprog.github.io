@@ -128,7 +128,7 @@ if (typeof window !== 'undefined') (function () {
       <div class="card">
       <p>Thank you for your interest. In this short study you look at sets of images made by text-to-image generators and tell us
       which images show the text they were made from, and how many genuinely different images a set offers.</p>
-      <ul><li>It takes about <b>15 minutes</b> on a computer (a phone works, but images are small).</li>
+      <ul><li>It is short: the bar at the top shows how far you are. A computer works best (a phone works, but images are small).</li>
       <li>Participation is voluntary and unpaid. You can stop at any time; answers given until then may be used.</li>
       <li>We do not ask for your name, e-mail or any personal information. You get a random code; your answers are stored under it.</li>
       <li>Answers are used only for research, reported in aggregate, and may be published as an anonymous data set.</li>
@@ -174,11 +174,11 @@ if (typeof window !== 'undefined') (function () {
       <p>Each screen shows the <b>text</b> that someone typed into an image generator, and images generated for it.
       Imagine you typed that text and want to pick an image from what the generator gives you.</p>
       ${definitions()}
-      <h2>Part 1 (about 5 minutes): which set offers more?</h2>
+      <h2>Part 1: which set offers more?</h2>
       <p>You see two sets of 8 images for the same text. Choose the set that offers <b>more genuinely different images that
       correctly show the text</b>, or "about the same". Keys: <kbd>&larr;</kbd> set 1, <kbd>&rarr;</kbd> set 2,
       <kbd>space</kbd> about the same. Click an image to enlarge it. Your first impression is fine: about 10 seconds per screen.</p>
-      <h2>Part 2 (about 8 minutes): count the different correct images</h2>
+      <h2>Part 2: count the different correct images</h2>
       <p>You see one set of 8 images. (1) Click every image that is correct. (2) Put the correct images into groups: images that
       are near-duplicates get the same letter, genuinely different images get different letters. (3) If two groups differ
       <i>only</i> in colour, mark it.</p>
