@@ -74,3 +74,15 @@ select { font-size: 1rem; padding: 6px; border-radius: 6px; border: 1px solid va
 .hidden { display: none !important; }
 .example .tile { cursor: default; }
 ul.notes li { margin: 4px 0; }
+
+/* first page */
+.hero-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin: 8px 0 14px; }
+.hero-strip img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px; }
+.lead { font-size: 1.05em; line-height: 1.5; }
+.steps { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 12px 0; }
+.step { background: rgba(127,127,127,0.08); border-radius: 8px; padding: 10px 12px; line-height: 1.4; }
+.stepnum { display: inline-block; width: 1.6em; height: 1.6em; line-height: 1.6em; text-align: center; border-radius: 50%;
+           background: #2c6fbb; color: #fff; font-weight: 600; margin-right: 6px; }
+.time { margin: 10px 0; }
+details { margin: 8px 0; } summary { cursor: pointer; font-weight: 600; }
+@media (max-width: 560px) { .steps { grid-template-columns: 1fr; } .hero-strip { grid-template-columns: repeat(2, 1fr); } }

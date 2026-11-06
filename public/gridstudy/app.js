@@ -124,16 +124,31 @@ if (typeof window !== 'undefined') (function () {
   /* ---------- screens ---------- */
   function consent() {
     progress(); setKeys(null);
-    app.innerHTML = `<div class="narrow"><h1>Image grid study</h1>
+    const ex = DATA.example;
+    const strip = ex ? `<div class="hero-strip">` + ex.images.slice(0, 4).map((src, i) =>
+      `<img src="${src}" alt="example generated image ${i + 1}">`).join('') + `</div>` : '';
+    app.innerHTML = `<div class="narrow"><h1>Help us see what AI image generators miss</h1>
+      ${strip}
       <div class="card">
-      <p>Thank you for your interest. In this short study you look at sets of images made by text-to-image generators and tell us
-      which images show the text they were made from, and how many genuinely different images a set offers.</p>
-      <ul><li>It is short: the bar at the top shows how far you are. A computer works best (a phone works, but images are small).</li>
-      <li>Participation is voluntary and unpaid. You can stop at any time; answers given until then may be used.</li>
+      <p class="lead">AI image generators usually show you a <b>set</b> of images for one request. But are those images really
+      different, or several copies of the same picture? Computers struggle to judge this. <b>Your eyes are the gold
+      standard</b>, and your answers will help make image generators give people more real choice.</p>
+      <div class="steps">
+        <div class="step"><span class="stepnum">1</span><b>Compare</b><br>Two sets of images, one text. Click the set that
+        offers more genuinely different images that match the text.</div>
+        <div class="step"><span class="stepnum">2</span><b>Count</b><br>Tick the images that match the text and group
+        the near-duplicates.</div>
+      </div>
+      <p class="time">&#9201; About <b>7&ndash;15 minutes</b>, at your own pace. A progress bar shows how far you are. A computer
+      works best; a phone works too.</p>
+      <details><summary>Your privacy and consent (please read)</summary>
+      <ul><li>Participation is voluntary and unpaid. You can stop at any time; answers given until then may be used.</li>
       <li>We do not ask for your name, e-mail or any personal information. You get a random code; your answers are stored under it.</li>
       <li>Answers are used only for research, reported in aggregate, and may be published as an anonymous data set.</li>
       <li>The images are AI-generated test images of everyday scenes and objects.</li>
-      <li>You must be 18 or older to take part.</li></ul>
+      <li>You must be 18 or older to take part.</li></ul></details>
+      <p class="muted">By clicking &ldquo;I agree, start&rdquo; you confirm that you have read the privacy and consent
+      information above.</p>
       ${CONTACT ? `<p class="muted">Questions: ${esc(CONTACT)}</p>` : ''}
       </div>
       <div class="row"><button class="btn primary" id="yes">I agree, start</button><button class="btn" id="no">No, thanks</button></div>
