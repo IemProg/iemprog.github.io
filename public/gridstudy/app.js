@@ -2,7 +2,7 @@
  * Configuration: the Google Apps Script web-app URL (see SETUP.md). Set ENDPOINT to '' to run offline
  * (answers are then only kept in this browser and in the "Download my answers" file). */
 'use strict';
-const ENDPOINT = 'https://script.google.com/macros/s/AKfycbya_s1foK2AQwVeFG_ppEhdmz_NlruR8J8zQXLxwBKkb0IPM_Qck84tfs_pY7qxTCUL/exec';
+const ENDPOINT = 'https://script.google.com/macros/s/AKfycbxJIPlLYNSy-oEFBxlKCGwv-lI8ditmuXLhQSzc4pkTrNckW8zX-JxVWtu_UHXeWUmC/exec';
 const CONTACT = 'imad.marouf97@gmail.com';                 // optional contact e-mail shown on the consent page
 const DURATION_TEXT = 'About <b>7&ndash;15 minutes</b>';
 const STORE_KEY = 'gridstudy_v4a4_state';
