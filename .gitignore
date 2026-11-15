@@ -13,3 +13,4 @@ vendor
 .idea
 dist/
 .claude/
+.astro/

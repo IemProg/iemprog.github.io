@@ -1,0 +1,43 @@
+---
+import Base from '../../layouts/Base.astro';
+import Subscribe from '../../components/Subscribe.astro';
+import { getPosts, formatDate } from '../../lib/posts';
+
+const posts = await getPosts();
+const byYear = new Map<number, typeof posts>();
+for (const p of posts) {
+  const y = p.data.date.getUTCFullYear();
+  byYear.set(y, [...(byYear.get(y) ?? []), p]);
+}
+---
+
+<Base title="Writing" description="Essays on AI research, building companies, and the long game.">
+  <h1 class="page-title">Writing</h1>
+  <p class="page-intro">
+    Essays on AI research, building companies, and the long game. Follow along by
+    <a href="/rss.xml">RSS</a> or <a href="https://imadmarouf.substack.com/subscribe" rel="noopener">email</a>.
+  </p>
+
+  {
+    [...byYear.entries()].map(([year, list]) => (
+      <section class="year-group">
+        <div class="section-head">
+          <h2 class="label">{year}</h2>
+        </div>
+        <ul class="rows">
+          {list.map((p) => (
+            <li>
+              <span>
+                <a href={`/writing/${p.id}/`}>{p.data.title}</a>
+                <span class="sub">{p.data.description}</span>
+              </span>
+              <span class="meta">{formatDate(p.data.date, 'short')}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))
+  }
+
+  <Subscribe />
+</Base>

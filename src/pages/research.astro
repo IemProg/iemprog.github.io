@@ -1,0 +1,66 @@
+---
+import Base from '../layouts/Base.astro';
+import { PUBLICATIONS, THESIS } from '../data/publications';
+import { SERVICE } from '../data/experience';
+
+const ME = 'Imad Eddine Marouf';
+---
+
+<Base
+  title="Research"
+  description="Papers on continual learning, model merging, and vision-language models."
+>
+  <h1 class="page-title">Research</h1>
+  <p class="page-intro">
+    Pretrained models are usually adapted once, then frozen. I work on what comes after: adapting them to new tasks
+    and data without erasing what they already know. I mostly use continual learning, model merging and
+    parameter-efficient fine-tuning, on vision and vision-language models. More recently I've worked on data mixtures
+    for LLM pre-training.
+  </p>
+  <p class="page-intro">
+    Code is on <a href="https://github.com/IemProg" rel="noopener">GitHub</a>, and the full list is on
+    <a href="https://scholar.google.com/citations?user=Z6xFbwQAAAAJ&hl=fr" rel="noopener">Google Scholar</a>.
+  </p>
+
+  <div class="thesis">
+    <p class="label" style="margin:0">PhD thesis · {THESIS.year}</p>
+    <p class="t">{THESIS.title}</p>
+    <p class="meta" style="white-space:normal">{THESIS.school} · Advised by {THESIS.advisors}</p>
+  </div>
+
+  <section class="section">
+    <div class="section-head"><h2 class="label">Papers</h2></div>
+    {
+      PUBLICATIONS.map((p) => (
+        <article class="pub">
+          <h3>
+            <a href={p.paper ?? p.arxiv} rel="noopener">{p.title}</a>
+          </h3>
+          <p class="authors" set:html={p.authors.replace(ME, `<b>${ME}</b>`)} />
+          <p class="venue">
+            <span>
+              <strong>{p.short}</strong>
+              {p.note && <span class="note"> · {p.note}</span>}
+            </span>
+            <span class="links">
+              {p.paper && <a href={p.paper} rel="noopener">Paper</a>}
+              <a href={p.arxiv} rel="noopener">arXiv</a>
+              {p.code && <a href={p.code} rel="noopener">Code</a>}
+            </span>
+          </p>
+          <details>
+            <summary>Summary{p.name && ` — ${p.name}`}</summary>
+            <p>{p.abstract}</p>
+          </details>
+        </article>
+      ))
+    }
+  </section>
+
+  <section class="section">
+    <div class="section-head"><h2 class="label">Service & teaching</h2></div>
+    <ul class="rows">
+      {SERVICE.map((s) => <li>{s}</li>)}
+    </ul>
+  </section>
+</Base>

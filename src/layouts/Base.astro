@@ -1,0 +1,93 @@
+---
+import '../styles/global.css';
+import { SITE, NAV, LINKS } from '../data/site';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  type?: 'website' | 'article';
+}
+
+const { title, description = SITE.description, image = '/assets/img/prof_pic_color.jpg', type = 'website' } = Astro.props;
+const fullTitle = title ? `${title} — ${SITE.name}` : SITE.title;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const path = Astro.url.pathname;
+const year = new Date().getFullYear();
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" type="application/rss+xml" title={`${SITE.name} — Writing`} href="/rss.xml" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta property="og:type" content={type} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL(image, Astro.site)} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="theme-color" content="#fbfaf6" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#141311" media="(prefers-color-scheme: dark)" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap"
+    />
+    <script is:inline>
+      try {
+        var t = localStorage.getItem('theme');
+        if (t === 'dark' || (!t && matchMedia('(prefers-color-scheme: dark)').matches))
+          document.documentElement.setAttribute('data-theme', 'dark');
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="site-header">
+        <a href="/" class="site-name">{SITE.name}</a>
+        <nav class="site-nav" aria-label="Main">
+          {
+            NAV.map((n) => (
+              <a href={n.href} aria-current={path.startsWith(n.href) ? 'page' : undefined}>
+                {n.label}
+              </a>
+            ))
+          }
+          <button class="theme-btn" id="theme-btn" aria-label="Toggle dark mode">
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>
+          </button>
+        </nav>
+      </header>
+
+      <main>
+        <slot />
+      </main>
+
+      <footer class="site-footer">
+        <span>© {year} {SITE.name}</span>
+        <nav aria-label="Elsewhere">
+          {LINKS.map((l) => <a href={l.url} rel="noopener">{l.label}</a>)}
+          <a href="/rss.xml">RSS</a>
+        </nav>
+      </footer>
+    </div>
+
+    <script is:inline>
+      document.getElementById('theme-btn').addEventListener('click', function () {
+        var root = document.documentElement;
+        var dark = root.getAttribute('data-theme') !== 'dark';
+        if (dark) root.setAttribute('data-theme', 'dark');
+        else root.removeAttribute('data-theme');
+        try { localStorage.setItem('theme', dark ? 'dark' : 'light'); } catch (e) {}
+      });
+    </script>
+  </body>
+</html>
