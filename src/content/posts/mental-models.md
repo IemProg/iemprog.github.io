@@ -2,7 +2,7 @@
 title: "Reasoning Through Mental Models"
 description: "Practical tools to navigate complexity and make better decisions"
 date: 2025-06-23
-tags: []
+tags: ["research"]
 originalUrl: "https://imadmarouf.substack.com/p/reasoning-through-mental-models"
 ---
 

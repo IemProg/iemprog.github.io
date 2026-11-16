@@ -2,7 +2,7 @@
 title: "What Underprepared Execution Reveals"
 description: "The only way to see what you actually have is to remove the plan."
 date: 2026-04-28
-tags: []
+tags: ["life"]
 originalUrl: "https://imadmarouf.substack.com/p/what-underprepared-execution-reveals"
 ---
 
@@ -16,7 +16,7 @@ The plan and your actual capacity look identical from the inside.
 
 The only way to see the difference is to remove the scaffolding.
 
-![](https://substackcdn.com/image/fetch/$s_!tdY0!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F8a281d75-cf11-4564-9362-d8faa34badcb_1731x909.png)
+![](/assets/img/posts/underprepared-execution/1.jpg)
 
 That’s what underprepared execution does. Without the plan, you have to think in real time, under load, with no fallback. And what’s left when the automatic version isn’t available is what you actually have. Not what you trained for. Not what you planned. What’s encoded.
 
@@ -36,7 +36,7 @@ Prepared execution tells you what’s possible when everything is in place.
 
 Underprepared execution tells you what’s actually there, unfiltered, unassisted, yours.
 
-![](https://substackcdn.com/image/fetch/$s_!jXq9!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F69d988fc-f2cd-4028-a032-ad88608aeac7_1731x909.png)
+![](/assets/img/posts/underprepared-execution/2.jpg)
 
 You don’t need to seek out underprepared situations. You just need to stop treating them as failures when they happen.
 

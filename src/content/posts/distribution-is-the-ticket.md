@@ -2,7 +2,7 @@
 title: "Distribution Is the Ticket, Not the Moat"
 description: "Each attention channel opens, saturates, and closes. We are in the middle of one."
 date: 2026-04-18
-tags: []
+tags: ["building"]
 originalUrl: "https://imadmarouf.substack.com/p/distribution-is-the-ticket-not-the"
 ---
 
@@ -34,7 +34,7 @@ This is a correct diagnosis pointing at the wrong prescription.
 
 Distribution is not the moat. It is the ticket that gets you into the room where moats get built.
 
-![](https://substackcdn.com/image/fetch/$s_!MnMS!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Feb7ad43b-4f14-4ee8-b210-941b7db674c8_2752x1536.png)
+![](/assets/img/posts/distribution-is-the-ticket/1.webp)
 
 In the short term, the two feel identical. A consumer app with a creator flywheel doing eight figures in revenue looks defensible from the outside. Zoom out by a few years and the picture changes. Every major attention arbitrage of the last fifteen years has opened, saturated, and closed inside a three to five year window.
 
@@ -68,7 +68,7 @@ That is the move a founder should be copying. Not the clipping campaign.
 
 ## Distribution is the shortest-lived moat on the board.
 
-![](https://substackcdn.com/image/fetch/$s_!oTnU!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2f162b52-c15f-4b5c-8448-082577a96d7b_2752x1536.png)
+![](/assets/img/posts/distribution-is-the-ticket/2.webp)
 
 “Distribution is the only moat” is a strong tweet and a weak strategy. Put distribution next to the other candidates and its position becomes obvious.
 

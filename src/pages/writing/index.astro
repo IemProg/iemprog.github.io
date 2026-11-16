@@ -1,22 +1,64 @@
 ---
+/*
+ * The writing index. Also rendered by ./tag/[tag].astro with a `tag` prop,
+ * so the filtered pages share this exact markup and work without JS.
+ */
 import Base from '../../layouts/Base.astro';
 import Subscribe from '../../components/Subscribe.astro';
-import { getPosts, formatDate } from '../../lib/posts';
+import { getPosts, formatDate, primaryTag, TAGS, type TagId } from '../../lib/posts';
 
-const posts = await getPosts();
+interface Props {
+  tag?: TagId;
+}
+
+const { tag } = Astro.props;
+const all = await getPosts();
+const posts = tag ? all.filter((p) => p.data.tags[0] === tag) : all;
+const active = TAGS.find((t) => t.id === tag);
+
+const chips = [
+  { href: '/writing/', label: 'All', count: all.length, current: !tag },
+  ...TAGS.map((t) => ({
+    href: `/writing/tag/${t.id}/`,
+    label: t.label,
+    count: all.filter((p) => p.data.tags[0] === t.id).length,
+    current: t.id === tag,
+  })),
+];
+
 const byYear = new Map<number, typeof posts>();
 for (const p of posts) {
   const y = p.data.date.getUTCFullYear();
   byYear.set(y, [...(byYear.get(y) ?? []), p]);
 }
+
+const intro = 'Essays on AI research, building companies, and the long game.';
 ---
 
-<Base title="Writing" description="Essays on AI research, building companies, and the long game.">
+<Base
+  title={active ? `Writing · ${active.label}` : 'Writing'}
+  description={active ? `Essays tagged ${active.label.toLowerCase()}. ${intro}` : intro}
+>
   <h1 class="page-title">Writing</h1>
   <p class="page-intro">
-    Essays on AI research, building companies, and the long game. Follow along by
+    {intro} Follow along by
     <a href="/rss.xml">RSS</a> or <a href="https://imadmarouf.substack.com/subscribe" rel="noopener">email</a>.
   </p>
+
+  <nav class="chips" aria-label="Filter essays by topic">
+    <ul>
+      {
+        chips.map((c) => (
+          <li>
+            <a href={c.href} aria-current={c.current ? 'page' : undefined}>
+              {c.label}
+              <span class="count">{c.count}</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
 
   {
     [...byYear.entries()].map(([year, list]) => (
@@ -25,15 +67,21 @@ for (const p of posts) {
           <h2 class="label">{year}</h2>
         </div>
         <ul class="rows">
-          {list.map((p) => (
-            <li>
-              <span>
-                <a href={`/writing/${p.id}/`}>{p.data.title}</a>
-                <span class="sub">{p.data.description}</span>
-              </span>
-              <span class="meta">{formatDate(p.data.date, 'short')}</span>
-            </li>
-          ))}
+          {list.map((p) => {
+            const t = primaryTag(p);
+            return (
+              <li>
+                <span>
+                  <a href={`/writing/${p.id}/`}>{p.data.title}</a>
+                  <span class="sub">{p.data.description}</span>
+                </span>
+                <span class="meta">
+                  {t && !tag && <span class="tag">{t.label}</span>}
+                  {formatDate(p.data.date, 'short')}
+                </span>
+              </li>
+            );
+          })}
         </ul>
       </section>
     ))
@@ -41,3 +89,42 @@ for (const p of posts) {
 
   <Subscribe />
 </Base>
+
+<style>
+  .chips { margin: 1.75rem 0 0; }
+  .chips ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+  .chips a {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.4em;
+    font-family: var(--sans);
+    font-size: 0.8125rem;
+    line-height: 1;
+    padding: 0.45rem 0.8rem;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.15s, border-color 0.15s, background-color 0.15s;
+  }
+  .chips a:hover { color: var(--accent); border-color: var(--accent); }
+  .chips a[aria-current='page'] {
+    color: var(--accent);
+    background: var(--accent-soft);
+    border-color: transparent;
+    font-weight: 600;
+  }
+  .chips .count {
+    font-size: 0.75rem;
+    font-variant-numeric: tabular-nums;
+    opacity: 0.7;
+  }
+  .meta .tag::after { content: '·'; margin: 0 0.45em; }
+</style>

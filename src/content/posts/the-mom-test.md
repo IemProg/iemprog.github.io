@@ -2,7 +2,7 @@
 title: "How to Stop Guessing and Start Building Products People Actually Want: The MOM Test"
 description: "The Mom Test: Because Your Idea is Only as Good as the Problems it Solves"
 date: 2024-06-28
-tags: []
+tags: ["building"]
 originalUrl: "https://imadmarouf.substack.com/p/how-to-stop-guessing-and-start-building"
 ---
 
@@ -10,7 +10,7 @@ You've got a million-dollar idea. A SaaS product poised to revolutionize an indu
 
 In this article, I'll distill the key ideas I've learned from Fitzpatrick's work, and show you how to uncover the hidden truths about your product's potential.
 
-![](https://substackcdn.com/image/fetch/$s_!BVU5!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff9991954-95b3-4196-92c6-9b1636e57f22_800x553.jpeg)
+![](/assets/img/posts/the-mom-test/1.jpg)
 
 The Mom Test isn't about finding validation; it's about unearthing the truth. It's about understanding the real problems your potential customers face, the solutions they've already tried, and what they'd be willing to pay for something better. Think of it as a detective's toolkit for uncovering the hidden desires and frustrations that drive your target market
 

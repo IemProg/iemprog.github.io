@@ -14,6 +14,7 @@ export async function GET(context: APIContext) {
       description: p.data.description,
       pubDate: p.data.date,
       link: `/writing/${p.id}/`,
+      categories: p.data.tags,
     })),
   });
 }

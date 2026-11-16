@@ -27,9 +27,10 @@ const links = [
       <strong>{p.short}</strong>{p.note && <span class="note"> · {p.note}</span>}
     </p>
     <p class="tldr">{p.tldr}</p>
-    <p class="links">
+    <div class="links">
       {links.map((l) => <a href={l.url} rel="noopener">{l.label}</a>)}
-    </p>
+      <button type="button" class="bib-btn" data-bibtex={p.bibtex} aria-live="polite">BibTeX</button>
+    </div>
     {
       details && (
         <details>
@@ -40,3 +41,40 @@ const links = [
     }
   </div>
 </article>
+
+<script is:inline>
+  // One delegated handler per page, however many cards are rendered.
+  if (!window.__bibCopy) {
+    window.__bibCopy = true;
+    document.addEventListener('click', function (e) {
+      var btn = e.target.closest && e.target.closest('.bib-btn');
+      if (!btn) return;
+      var text = btn.getAttribute('data-bibtex') || '';
+      var done = function () {
+        btn.textContent = 'Copied';
+        btn.classList.add('is-copied');
+        clearTimeout(btn._t);
+        btn._t = setTimeout(function () {
+          btn.textContent = 'BibTeX';
+          btn.classList.remove('is-copied');
+        }, 1600);
+      };
+      var fallback = function () {
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        ta.setAttribute('readonly', '');
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand('copy'); done(); } catch (err) {}
+        document.body.removeChild(ta);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, fallback);
+      } else {
+        fallback();
+      }
+    });
+  }
+</script>

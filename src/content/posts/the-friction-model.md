@@ -2,7 +2,7 @@
 title: "The Friction Model: Why Starting Is the Hardest Part"
 description: "Why starting is harder than continuing, and how to engineer the fix"
 date: 2026-01-11
-tags: []
+tags: ["life"]
 originalUrl: "https://imadmarouf.substack.com/p/behavior-is-water-friction-is-the"
 ---
 
@@ -26,7 +26,7 @@ This is wrong. And it took me embarrassingly long to see why.
 
 The problem isn’t motivation. It’s friction.
 
-![](https://substackcdn.com/image/fetch/$s_!EC84!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2a26bc01-9187-46f4-a2e1-b9049c1b882a_1024x541.jpeg)
+![](/assets/img/posts/the-friction-model/1.jpg)
 
 **The Motivation Trap**
 

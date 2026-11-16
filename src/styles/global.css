@@ -175,12 +175,24 @@ main { padding: 4.5rem 0 5rem; }
 .rows .sub { display: block; font-size: 0.95rem; color: var(--muted); margin-top: 0.15rem; line-height: 1.45; }
 
 /* ─── Home ───────────────────────────────────────────────────────────────── */
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 9.5rem;
+  gap: 2.5rem;
+  align-items: start;
+}
 .hero h1 {
-  font-size: clamp(1.3125rem, 2.6vw, 1.5rem);
-  line-height: 1.4;
+  font-size: clamp(1.75rem, 4vw, 2rem);
+  line-height: 1.15;
   font-weight: 500;
   margin: 0 0 1.25rem;
-  max-width: var(--measure);
+}
+.hero-photo {
+  width: 9.5rem;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-top: 0.35rem;
 }
 .socials { list-style: none; margin: 1.75rem 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
 .socials a {
@@ -201,11 +213,6 @@ main { padding: 4.5rem 0 5rem; }
 .socials a:hover { background: var(--accent); color: var(--bg); }
 .socials svg { width: 14px; height: 14px; flex: none; }
 .hero p { max-width: var(--measure); margin: 0 0 1rem; }
-.hero .creds { font-family: var(--sans); font-size: 0.875rem; color: var(--muted); margin-top: 1.5rem; }
-
-.now { list-style: none; padding: 0; margin: 0; }
-.now li { padding: 0.55rem 0 0.55rem 1.4rem; position: relative; }
-.now li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-family: var(--sans); font-size: 0.9em; top: 0.68rem; }
 
 /* ─── Research ───────────────────────────────────────────────────────────── */
 .pub { padding: 1.4rem 0; border-bottom: 1px solid var(--rule); }
@@ -234,7 +241,7 @@ main { padding: 4.5rem 0 5rem; }
 
 /* ─── About ──────────────────────────────────────────────────────────────── */
 .about-head { display: grid; grid-template-columns: 1fr 9rem; gap: 2.5rem; align-items: start; }
-.about-head img { width: 9rem; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 3px; filter: grayscale(0.15); }
+.about-head img { width: 9rem; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 4px; }
 .prose-block p { max-width: var(--measure); }
 
 .cv-rows { list-style: none; padding: 0; margin: 0; }
@@ -308,6 +315,8 @@ main { padding: 4.5rem 0 5rem; }
   main { padding-top: 3rem; }
   .site-header { flex-direction: column; gap: 0.5rem; }
   .rows li { flex-direction: column; gap: 0.15rem; }
+  .hero { grid-template-columns: 1fr; gap: 1.25rem; }
+  .hero-photo { width: 6.5rem; order: -1; margin-top: 0; }
   .about-head { grid-template-columns: 1fr; }
   .about-head img { width: 7rem; order: -1; }
   .cv-rows li { grid-template-columns: 1fr; gap: 0.15rem; }
@@ -321,12 +330,37 @@ main { padding: 4.5rem 0 5rem; }
 .news { list-style: none; margin: 0; padding: 0; }
 .news li { display: grid; grid-template-columns: 5.5rem 1fr; gap: 1rem; padding: 0.45rem 0; align-items: baseline; }
 .news li > span { font-size: 1.0625rem; }
+.more { margin-top: 0.35rem; }
+.more summary {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 0.8125rem;
+  color: var(--muted);
+  cursor: pointer;
+  list-style: none;
+  padding: 0.25rem 0;
+}
+.more summary::-webkit-details-marker { display: none; }
+.more summary::before { content: '+ '; }
+.more[open] summary::before { content: '− '; }
+.more summary:hover { color: var(--accent); }
 
 /* ─── Paper cards ────────────────────────────────────────────────────────── */
 .paper { display: grid; grid-template-columns: 13rem 1fr; gap: 1.5rem; padding: 1.6rem 0; border-bottom: 1px solid var(--rule); }
 .paper:last-child { border-bottom: 0; }
-.paper-fig { display: block; align-self: start; background: #fff; border: 1px solid var(--rule); border-radius: 4px; padding: 0.4rem; line-height: 0; }
-.paper-fig img { width: 100%; height: 7.5rem; object-fit: contain; }
+/* Figures are diagrams on white: keep a white frame in both themes. */
+.paper-fig {
+  display: block;
+  align-self: start;
+  aspect-ratio: 16 / 10;
+  background: #fff;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 0.4rem;
+  line-height: 0;
+  overflow: hidden;
+}
+.paper-fig img { display: block; width: 100%; height: 100%; object-fit: contain; }
 .paper h3 { font-size: 1.125rem; margin: 0 0 0.35rem; line-height: 1.35; }
 .paper h3 a { text-decoration: none; }
 .paper p { margin: 0; }
@@ -336,9 +370,28 @@ main { padding: 4.5rem 0 5rem; }
 .paper .venue strong { color: var(--ink); font-weight: 600; }
 .paper .note { color: var(--accent); font-weight: 600; }
 .paper .tldr { font-size: 1rem; margin-top: 0.5rem; }
-.paper .links { font-family: var(--sans); font-size: 0.8125rem; margin-top: 0.5rem; display: flex; flex-wrap: wrap; gap: 0.25rem 1rem; }
-.paper .links a { color: var(--muted); text-decoration-color: var(--rule); }
-.paper .links a:hover { color: var(--accent); }
+/* Small buttons, a quieter cousin of .socials */
+.paper .links { margin-top: 0.75rem; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.paper .links a,
+.paper .links button {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--muted);
+  background: transparent;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 0.4rem 0.6rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+}
+.paper .links a:hover,
+.paper .links button:hover { color: var(--accent); background: var(--accent-soft); border-color: var(--accent-soft); }
+.paper .links .is-copied { color: var(--accent); background: var(--accent-soft); border-color: var(--accent-soft); }
 .paper details { margin-top: 0.6rem; }
 .paper summary { font-family: var(--sans); font-size: 0.8125rem; color: var(--muted); cursor: pointer; list-style: none; }
 .paper summary::-webkit-details-marker { display: none; }
@@ -348,6 +401,6 @@ main { padding: 4.5rem 0 5rem; }
 
 @media (max-width: 600px) {
   .paper { grid-template-columns: 1fr; gap: 0.9rem; }
-  .paper-fig img { height: auto; max-height: 11rem; }
+  .paper-fig { max-width: 26rem; }
   .news li { grid-template-columns: 4.5rem 1fr; gap: 0.75rem; }
 }

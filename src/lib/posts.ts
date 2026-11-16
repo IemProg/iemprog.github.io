@@ -19,3 +19,16 @@ export function formatDate(d: Date, style: 'long' | 'short' = 'long'): string {
     timeZone: 'UTC',
   });
 }
+
+/** Primary topics for essays. Each post carries exactly one of these as `tags[0]`. */
+export const TAGS = [
+  { id: 'research', label: 'Research' },
+  { id: 'building', label: 'Building' },
+  { id: 'life', label: 'Life' },
+] as const;
+
+export type TagId = (typeof TAGS)[number]['id'];
+
+export function primaryTag(post: Post): (typeof TAGS)[number] | undefined {
+  return TAGS.find((t) => t.id === post.data.tags[0]);
+}

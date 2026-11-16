@@ -1,0 +1,13 @@
+---
+/* Static, JS-free topic filter: /writing/tag/<tag>/ renders the writing index filtered to one tag. */
+import WritingIndex from '../index.astro';
+import { TAGS, type TagId } from '../../../lib/posts';
+
+export function getStaticPaths() {
+  return TAGS.map((t) => ({ params: { tag: t.id } }));
+}
+
+const tag = Astro.params.tag as TagId;
+---
+
+<WritingIndex tag={tag} />

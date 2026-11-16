@@ -2,7 +2,7 @@
 title: "The Search Space Problem"
 description: "On failure, success stories and where to point your attention"
 date: 2026-01-09
-tags: []
+tags: ["life"]
 originalUrl: "https://imadmarouf.substack.com/p/the-search-space-problem"
 ---
 
@@ -10,7 +10,7 @@ Why is the internet full of failure stories?
 
 “10 mistakes that ruined my health.” “What I learned from my failed marriage.” “Why I dropped out.” Post-mortems everywhere.
 
-![](https://substackcdn.com/image/fetch/$s_!2xGw!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1675e918-ae0d-4d47-a7bf-b348a1d3e6f3_2752x1536.png)
+![](/assets/img/posts/the-search-space-problem/1.webp)
 
 Success stories are rarer. Quieter. Harder to find.
 

@@ -1,7 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
-import { SITE } from '../data/site';
 import { EXPERIENCE, EDUCATION } from '../data/experience';
+import { THESIS } from '../data/publications';
 import Socials from '../components/Socials.astro';
 ---
 
@@ -10,30 +10,22 @@ import Socials from '../components/Socials.astro';
     <div class="prose-block">
       <h1 class="page-title">About</h1>
       <p>
-        I'm Imad. I did my PhD at <a href="https://www.telecom-paris.fr/" rel="noopener">Télécom Paris</a>
-        (Institut Polytechnique de Paris), advised by <a href="http://stelat.eu/" rel="noopener">Stéphane Lathuilière</a>
-        and <a href="https://enzotarta.github.io/" rel="noopener">Enzo Tartaglione</a>. My thesis looked at how to adapt
-        large pretrained models to new tasks over time without losing what they already learned.
+        I completed my PhD in {THESIS.year} at LTCI, Télécom Paris (Institut Polytechnique de Paris), with a thesis
+        titled <em>{THESIS.title}</em>. My papers cover continual learning, model merging and parameter-efficient
+        fine-tuning, and are listed on the <a href="/research/">research page</a>.
       </p>
+      <p>
+        I co-founded <a href="https://curriboxai.com" rel="noopener">CurriboxAI</a>, which makes tools that help
+        staffing firms anonymize, translate and format CVs. I review for CVPR, NeurIPS and ECCV, and I publish
+        <a href="/writing/">essays</a> here.
+      </p>
+      <p>
+        You can reach me by
+        <a href="#" class="email-link" data-u="am.eniddedami" data-d="moc.liamg">email</a>.
+      </p>
+      <Socials />
     </div>
-    <img src="/assets/img/prof_pic_color.jpg" alt="Portrait of Imad Eddine Marouf" width="288" height="360" />
-  </div>
-
-  <div class="prose-block">
-    <p>
-      During the PhD I spent time at the Computer Vision Center in Barcelona and, more recently, on Google DeepMind's
-      Gemma team, working on data mixtures for pre-training. I also co-founded
-      <a href="https://curriboxai.com" rel="noopener">CurriboxAI</a>, because I want to see research ideas used in real
-      products.
-    </p>
-    <p>
-      I <a href="/writing/">write</a> about research, building companies, and the long game.
-    </p>
-    <p>
-      The best way to reach me is on <a href={SITE.contact} rel="noopener">LinkedIn</a>. I'm happy to talk about
-      research, collaborations, or anything I've written.
-    </p>
-    <Socials />
+    <img src="/assets/img/prof_pic_color.jpg" alt="Portrait of Imad Eddine Marouf" width="960" height="960" />
   </div>
 
   <section class="section">
@@ -71,5 +63,4 @@ import Socials from '../components/Socials.astro';
       }
     </ul>
   </section>
-
 </Base>

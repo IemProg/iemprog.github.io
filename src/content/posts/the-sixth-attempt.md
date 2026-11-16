@@ -2,7 +2,7 @@
 title: "The Sixth Attempt"
 description: "What six attempts taught me about consistency, decision fatigue, and architecting behavior"
 date: 2025-12-09
-tags: []
+tags: ["life"]
 originalUrl: "https://imadmarouf.substack.com/p/the-sixth-attempt"
 ---
 
@@ -94,7 +94,7 @@ Strava shows your streak. Run every day, the number goes up. Miss a day, it rese
 
 This seems like a trivial UI element. It’s not. It’s a commitment device.
 
-![](https://substackcdn.com/image/fetch/$s_!YKEp!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ffad0e395-f6c9-480b-ab35-ed0b3da65eb7_1290x1378.jpeg)
+![](/assets/img/posts/the-sixth-attempt/1.jpg)
 
 On day 5, missing a run costs you 5 days. On day 20, it costs you 20 days. The cost of quitting increases linearly with time, while the cost of continuing stays constant—just one more run.
 

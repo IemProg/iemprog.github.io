@@ -2,7 +2,7 @@
 title: "For Anyone Thinking About a PhD in AI, Read this First"
 description: "Everything I’ve learnt had nothing to do with the research. What I wish I knew on day one."
 date: 2026-02-28
-tags: []
+tags: ["research"]
 originalUrl: "https://imadmarouf.substack.com/p/for-anyone-thinking-about-a-phd-in"
 ---
 
@@ -108,7 +108,7 @@ Second, pick your battles. You cannot compete with Google or OpenAI on compute. 
 
 There is a trap worth naming, especially if you come from a software engineering background.
 
-![](https://substackcdn.com/image/fetch/$s_!vzpk!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fde1f8fa6-bb37-41c1-a76b-eea403c3fbff_2752x1536.png)
+![](/assets/img/posts/phd-in-ai/1.webp)
 
 The temptation is to build things properly. Clean code. Scalable pipelines. Good architecture. Early in my PhD, I spent weeks building a perfect experimental setup before running a single meaningful experiment. I was proud of that codebase. It was elegant, modular, well-documented.
 
@@ -251,7 +251,7 @@ If your lab offers to send you to a conference, go. Even if you do not have a pa
 
 Almost everyone goes through a difficult first year. Almost nobody talks about it openly.
 
-![](https://substackcdn.com/image/fetch/$s_!4bET!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fc0bffce2-bc58-4be2-bdbf-26137b4891aa_2752x1536.png)
+![](/assets/img/posts/phd-in-ai/2.webp)
 
 There is a period, usually in the first year, where you feel stuck. Your first ideas do not work. Or they work but not well enough to publish. You watch other people making progress and start wondering if you made a mistake. A year in, nothing to show for it, not sure this is going anywhere.
 

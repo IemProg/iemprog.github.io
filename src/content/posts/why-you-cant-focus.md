@@ -2,11 +2,11 @@
 title: "Why You Can't Focus (It's Not a Discipline Problem)"
 description: "System 2: Why your brain was built to wander and the design that works with it"
 date: 2026-02-07
-tags: []
+tags: ["life"]
 originalUrl: "https://imadmarouf.substack.com/p/why-you-cant-focus-its-not-a-discipline"
 ---
 
-![](https://substackcdn.com/image/fetch/$s_!8wUe!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7d7de07d-e2d3-4b95-82b7-f5e33956fbf3_2752x1536.png)
+![](/assets/img/posts/why-you-cant-focus/1.webp)
 
 **I**f you’re anything like me, you believe that focus is about willpower.
 

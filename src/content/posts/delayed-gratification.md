@@ -2,7 +2,7 @@
 title: "Understanding the Cause-and-Effect Timeframes: The Delayed Gratification Advantage"
 description: "The Long Game: Because Life Isn't a Sprint, It's a Marathon (With Some Amazing Views Along the Way)"
 date: 2024-06-05
-tags: ["life", "long-game"]
+tags: ["life"]
 originalUrl: "https://imadmarouf.substack.com/p/understanding-the-cause-and-effect"
 ---
 
@@ -12,7 +12,7 @@ Think of it like this:
 
 Imagine two graphs. One represents your memory of the work you put in, and the other represents the effects of that work.
 
-![](https://substackcdn.com/image/fetch/$s_!mTrt!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7d24d7a2-77db-47c2-b5b8-7b7efa38e0db_539x413.png)
+![](/assets/img/posts/delayed-gratification/1.png)
 
 The memory graph starts high, because you remember what you did today. You can vividly recall that late-night brainstorming session, that intense sales call, or that long, arduous research project. It's fresh in your mind, and you feel the effort you put in. But, as time passes, your memory fades. You might remember the general gist of what you did, but the details blur. The effort you put in feels like a distant memory. You might even start to believe that the results you're seeing now are directly linked to the work you did yesterday, or the week before.
 

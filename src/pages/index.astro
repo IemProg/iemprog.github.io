@@ -1,45 +1,53 @@
 ---
 import Base from '../layouts/Base.astro';
 import Subscribe from '../components/Subscribe.astro';
-import { SITE } from '../data/site';
 import { PUBLICATIONS } from '../data/publications';
 import { NEWS, formatMonth } from '../data/news';
 import Paper from '../components/Paper.astro';
 import Socials from '../components/Socials.astro';
 import { getPosts, formatDate } from '../lib/posts';
 
-const posts = (await getPosts()).slice(0, 5);
+const posts = (await getPosts()).slice(0, 3);
+const recentNews = NEWS.slice(0, 5);
+const olderNews = NEWS.slice(5);
 ---
 
 <Base>
   <section class="hero">
-    <h1>I'm an AI researcher working on continual learning: how pretrained models can keep adapting to new tasks without forgetting what they already know.</h1>
-    <p>
-      I recently completed my PhD at <a href="https://www.telecom-paris.fr/" rel="noopener">Télécom Paris</a>,
-      advised by <a href="http://stelat.eu/" rel="noopener">Stéphane Lathuilière</a> and
-      <a href="https://enzotarta.github.io/" rel="noopener">Enzo Tartaglione</a>. My thesis studied efficient ways to
-      adapt vision and vision-language models over time. During the PhD I
-      was a student researcher on Google DeepMind's Gemma team, working on data mixtures for pre-training, and a
-      visiting researcher at the Computer Vision Center in Barcelona, hosted by
-      <a href="https://scholar.google.com/citations?user=Gsw2iUEAAAAJ&hl=en" rel="noopener">Joost van de Weijer</a>.
-    </p>
-    <p>
-      I'm interested in what makes models train well: data, adaptation, and compute. Here I write about research and
-      what I learn along the way, including from building
-      <a href="https://curriboxai.com" rel="noopener">CurriboxAI</a>.
-    </p>
-    <p>
-      I'm open to research roles on LLM and vision-language model training.
-      <a href={SITE.contact} rel="noopener">Get in touch</a>.
-    </p>
-    <Socials />
+    <div class="hero-text">
+      <h1>Imad Eddine Marouf</h1>
+      <p>
+        I'm an AI researcher working on continual learning: how pretrained models can keep adapting to new tasks
+        without forgetting what they already know. I recently completed my PhD at
+        <a href="https://www.telecom-paris.fr/" rel="noopener">Télécom Paris</a>, advised by
+        <a href="http://stelat.eu/" rel="noopener">Stéphane Lathuilière</a> and
+        <a href="https://enzotarta.github.io/" rel="noopener">Enzo Tartaglione</a>. During the PhD I was a student
+        researcher on Google DeepMind's Gemma team, working on data mixtures for pre-training, and a visiting
+        researcher at the Computer Vision Center in Barcelona, hosted by
+        <a href="https://scholar.google.com/citations?user=Gsw2iUEAAAAJ&hl=en" rel="noopener">Joost van de Weijer</a>.
+      </p>
+      <p>
+        I also write about research and what I learn along the way, including from building
+        <a href="https://curriboxai.com" rel="noopener">CurriboxAI</a>. I'm open to research roles on LLM and
+        vision-language model training:
+        <a href="#" class="email-link" data-u="am.eniddedami" data-d="moc.liamg">get in touch</a>.
+      </p>
+      <Socials />
+    </div>
+    <img
+      class="hero-photo"
+      src="/assets/img/prof_pic_color.jpg"
+      alt="Portrait of Imad Eddine Marouf"
+      width="960"
+      height="960"
+    />
   </section>
 
   <section class="section">
     <div class="section-head"><h2 class="label">News</h2></div>
     <ul class="news">
       {
-        NEWS.map((n) => (
+        recentNews.map((n) => (
           <li>
             <time class="meta" datetime={n.date}>{formatMonth(n.date)}</time>
             <span set:html={n.html} />
@@ -47,6 +55,21 @@ const posts = (await getPosts()).slice(0, 5);
         ))
       }
     </ul>
+    {
+      olderNews.length > 0 && (
+        <details class="more">
+          <summary>Show older</summary>
+          <ul class="news">
+            {olderNews.map((n) => (
+              <li>
+                <time class="meta" datetime={n.date}>{formatMonth(n.date)}</time>
+                <span set:html={n.html} />
+              </li>
+            ))}
+          </ul>
+        </details>
+      )
+    }
   </section>
 
   <section class="section">
@@ -59,7 +82,7 @@ const posts = (await getPosts()).slice(0, 5);
 
   <section class="section">
     <div class="section-head">
-      <h2 class="label">Writing</h2>
+      <h2 class="label">Essays</h2>
       <a href="/writing/">All writing →</a>
     </div>
     <ul class="rows">
@@ -71,19 +94,6 @@ const posts = (await getPosts()).slice(0, 5);
           </li>
         ))
       }
-    </ul>
-  </section>
-
-  <section class="section">
-    <div class="section-head"><h2 class="label">Building</h2></div>
-    <ul class="rows">
-      <li>
-        <span>
-          <a href="https://curriboxai.com" rel="noopener">CurriboxAI</a>
-          <span class="sub">Tools that help staffing firms anonymize, translate and format CVs.</span>
-        </span>
-        <span class="meta">Co-founder</span>
-      </li>
     </ul>
   </section>
 

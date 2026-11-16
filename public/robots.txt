@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /gridstudy/
+
+Sitemap: https://iemprog.github.io/sitemap-index.xml
