@@ -19,7 +19,8 @@ const posts = (await getPosts()).slice(0, 5);
       <a href="https://enzotarta.github.io/" rel="noopener">Enzo Tartaglione</a>. My thesis studied efficient ways to
       adapt vision and vision-language models over time. During the PhD I
       was a student researcher on Google DeepMind's Gemma team, working on data mixtures for pre-training, and a
-      visiting researcher at the Computer Vision Center in Barcelona.
+      visiting researcher at the Computer Vision Center in Barcelona, hosted by
+      <a href="https://scholar.google.com/citations?user=Gsw2iUEAAAAJ&hl=en" rel="noopener">Joost van de Weijer</a>.
     </p>
     <p>
       I'm interested in what makes models train well: data, adaptation, and compute. Here I write about research and
@@ -30,6 +31,20 @@ const posts = (await getPosts()).slice(0, 5);
       I'm open to research roles on LLM and vision-language model training.
       <a href={SITE.contact} rel="noopener">Get in touch</a>.
     </p>
+    <ul class="socials">
+      <li><a href="https://www.linkedin.com/in/iemprog/" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://scholar.google.com/citations?user=Z6xFbwQAAAAJ&hl=fr" rel="noopener">Google Scholar</a></li>
+      <li><a href="https://github.com/IemProg" rel="noopener">GitHub</a></li>
+      <li><a href="#" id="email-link" data-u="am.eniddedami" data-d="moc.liamg">Email</a></li>
+    </ul>
+    <script is:inline>
+      // The address is stored reversed and assembled only on click, so it never appears in the page.
+      document.getElementById('email-link')?.addEventListener('click', function (e) {
+        e.preventDefault();
+        var r = function (s) { return s.split('').reverse().join(''); };
+        window.open('mailto:' + r(this.dataset.u) + '@' + r(this.dataset.d), '_blank');
+      });
+    </script>
   </section>
 
   <section class="section">
