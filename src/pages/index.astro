@@ -3,32 +3,55 @@ import Base from '../layouts/Base.astro';
 import Subscribe from '../components/Subscribe.astro';
 import { SITE } from '../data/site';
 import { PUBLICATIONS } from '../data/publications';
+import { NEWS, formatMonth } from '../data/news';
+import Paper from '../components/Paper.astro';
 import { getPosts, formatDate } from '../lib/posts';
 
 const posts = (await getPosts()).slice(0, 5);
-const selected = PUBLICATIONS.filter((p) => p.selected);
 ---
 
 <Base>
   <section class="hero">
-    <h1>I'm an AI researcher. I work on how models can keep learning without forgetting what they already know.</h1>
+    <h1>I'm an AI researcher working on continual learning: how pretrained models can keep adapting to new tasks without forgetting what they already know.</h1>
     <p>
-      I recently finished my PhD at Télécom Paris. I also co-founded
-      <a href="https://curriboxai.com" rel="noopener">CurriboxAI</a>, and I write here about research, building
-      products, and the long game.
+      I recently completed my PhD at <a href="https://www.telecom-paris.fr/" rel="noopener">Télécom Paris</a>,
+      advised by <a href="http://stelat.eu/" rel="noopener">Stéphane Lathuilière</a> and
+      <a href="https://enzotarta.github.io/" rel="noopener">Enzo Tartaglione</a>. My thesis studied efficient ways to
+      adapt vision and vision-language models over time. During the PhD I
+      was a student researcher on Google DeepMind's Gemma team, working on data mixtures for pre-training, and a
+      visiting researcher at the Computer Vision Center in Barcelona.
+    </p>
+    <p>
+      I'm interested in what makes models train well: data, adaptation, and compute. Here I write about research and
+      what I learn along the way, including from building
+      <a href="https://curriboxai.com" rel="noopener">CurriboxAI</a>.
+    </p>
+    <p>
+      I'm open to research roles on LLM and vision-language model training.
+      <a href={SITE.contact} rel="noopener">Get in touch</a>.
     </p>
   </section>
 
   <section class="section">
-    <div class="section-head"><h2 class="label">Now</h2></div>
-    <ul class="now">
-      <li>
-        Open to research roles on LLM and vision-language model training.
-        <a href={SITE.contact} rel="noopener">Get in touch.</a>
-      </li>
-      <li>Building <a href="https://curriboxai.com" rel="noopener">CurriboxAI</a>.</li>
-      <li>Writing more often.</li>
+    <div class="section-head"><h2 class="label">News</h2></div>
+    <ul class="news">
+      {
+        NEWS.map((n) => (
+          <li>
+            <time class="meta" datetime={n.date}>{formatMonth(n.date)}</time>
+            <span set:html={n.html} />
+          </li>
+        ))
+      }
     </ul>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <h2 class="label">Publications</h2>
+      <a href="/research/">Research →</a>
+    </div>
+    {PUBLICATIONS.map((p) => <Paper p={p} />)}
   </section>
 
   <section class="section">
@@ -49,28 +72,6 @@ const selected = PUBLICATIONS.filter((p) => p.selected);
   </section>
 
   <section class="section">
-    <div class="section-head">
-      <h2 class="label">Selected research</h2>
-      <a href="/research/">All papers →</a>
-    </div>
-    <ul class="rows">
-      {
-        selected.map((p) => (
-          <li>
-            <a href={p.arxiv} rel="noopener">
-              {p.title}
-            </a>
-            <span class="meta">
-              {p.short}
-              {p.note && <span class="accent"> · Oral</span>}
-            </span>
-          </li>
-        ))
-      }
-    </ul>
-  </section>
-
-  <section class="section">
     <div class="section-head"><h2 class="label">Building</h2></div>
     <ul class="rows">
       <li>
@@ -79,13 +80,6 @@ const selected = PUBLICATIONS.filter((p) => p.selected);
           <span class="sub">Tools that help staffing firms anonymize, translate and format CVs.</span>
         </span>
         <span class="meta">Co-founder</span>
-      </li>
-      <li>
-        <span>
-          <a href="https://github.com/IemProg" rel="noopener">Open-source research code</a>
-          <span class="sub">Code for my papers: DMC, QUAD, CoFiMA, PLASTIC.</span>
-        </span>
-        <span class="meta">GitHub</span>
       </li>
     </ul>
   </section>

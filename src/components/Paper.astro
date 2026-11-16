@@ -1,0 +1,42 @@
+---
+import type { Publication } from '../data/publications';
+
+interface Props {
+  p: Publication;
+  details?: boolean;
+}
+const { p, details = false } = Astro.props;
+const me = 'Imad Eddine Marouf';
+const [before, after] = p.authors.split(me);
+const links = [
+  { label: 'arXiv', url: p.arxiv },
+  { label: 'Paper', url: p.paper },
+  { label: 'Code', url: p.code },
+  { label: 'Project page', url: p.project },
+].filter((l) => l.url);
+---
+
+<article class="paper">
+  <a class="paper-fig" href={p.project ?? p.arxiv} rel="noopener" tabindex="-1" aria-hidden="true">
+    <img src={p.image} alt="" loading="lazy" />
+  </a>
+  <div class="paper-body">
+    <h3><a href={p.project ?? p.arxiv} rel="noopener">{p.title}</a></h3>
+    <p class="authors">{before}<b>{me}</b>{after}</p>
+    <p class="venue">
+      <strong>{p.short}</strong>{p.note && <span class="note"> · {p.note}</span>}
+    </p>
+    <p class="tldr">{p.tldr}</p>
+    <p class="links">
+      {links.map((l) => <a href={l.url} rel="noopener">{l.label}</a>)}
+    </p>
+    {
+      details && (
+        <details>
+          <summary>Summary</summary>
+          <p>{p.abstract}</p>
+        </details>
+      )
+    }
+  </div>
+</article>

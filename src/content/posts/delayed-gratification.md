@@ -41,9 +41,7 @@ He knew that building a strong foundation, investing in innovation, and focusing
 So, next time you're faced with a decision, ask yourself:
 
 -   What are the long-term consequences of this action?
-
 -   Will it help me achieve my goals?
-
 -   Will it build momentum and create lasting value?
 
 If the answer is yes, then you're on the right track.

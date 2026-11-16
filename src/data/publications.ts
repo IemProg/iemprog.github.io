@@ -9,6 +9,9 @@ export interface Publication {
   arxiv: string;
   paper?: string;
   code?: string;
+  project?: string;
+  image: string; // teaser figure in /public
+  tldr: string; // one sentence
   abstract: string;
   selected?: boolean;
 }
@@ -21,6 +24,9 @@ export const PUBLICATIONS: Publication[] = [
     short: 'NeurIPS 2026',
     year: 2026,
     name: 'DMC',
+    image: '/assets/img/papers/dmc_overview.png',
+    tldr: 'Learns two prompts, one for seen classes and one for new ones, and merges them at test time for the cost of a single prompt.',
+    project: 'https://iemprog.github.io/DMC/',
     arxiv: 'https://arxiv.org/abs/2611.09655',
     code: 'https://github.com/IemProg/DMC',
     selected: true,
@@ -34,6 +40,8 @@ export const PUBLICATIONS: Publication[] = [
     short: 'ICCV 2025',
     year: 2025,
     name: 'QUAD',
+    image: '/assets/img/papers/quad_main.png',
+    tldr: 'Continual visual question answering that replays only past questions, without storing any images.',
     arxiv: 'https://arxiv.org/abs/2502.04469',
     paper:
       'https://openaccess.thecvf.com/content/ICCV2025/papers/Marouf_Ask_and_Remember_A_Questions-Only_Replay_Strategy_for_Continual_Visual_ICCV_2025_paper.pdf',
@@ -49,6 +57,8 @@ export const PUBLICATIONS: Publication[] = [
     short: 'CoLLAs 2025',
     year: 2025,
     name: 'PLASTIC',
+    image: '/assets/img/papers/ttacil_preview.png',
+    tldr: 'Uses test-time adaptation so a model keeps learning new classes after its first training session.',
     arxiv: 'https://arxiv.org/abs/2310.11482',
     code: 'https://github.com/IemProg/PLASTIC',
     abstract:
@@ -62,6 +72,8 @@ export const PUBLICATIONS: Publication[] = [
     year: 2024,
     note: 'Oral',
     name: 'CoFiMA',
+    image: '/assets/img/papers/cofima_preview.png',
+    tldr: 'Averages model weights across tasks, weighting each parameter by its Fisher information.',
     arxiv: 'https://arxiv.org/abs/2312.08977',
     paper: 'https://link.springer.com/chapter/10.1007/978-3-031-73209-6_18',
     code: 'https://github.com/IemProg/CoFiMA',
@@ -76,6 +88,8 @@ export const PUBLICATIONS: Publication[] = [
     short: 'WACV 2024',
     year: 2024,
     name: 'MiMi',
+    image: '/assets/img/papers/mimi_preview.png',
+    tldr: 'Fine-tunes vision transformers with adapters that shrink during training, guided by neuron importance.',
     arxiv: 'https://arxiv.org/abs/2311.03873',
     paper:
       'https://openaccess.thecvf.com/content/WACV2024/papers/Marouf_Mini_but_Mighty_Finetuning_ViTs_With_Mini_Adapters_WACV_2024_paper.pdf',

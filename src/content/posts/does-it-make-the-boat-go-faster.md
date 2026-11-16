@@ -29,19 +29,14 @@ Hunt-Davis, an Olympic champion, asks this very question in his book "Will it ma
 **Think about it this way:**
 
 -   **Cleaning your email inbox:** Feels productive, but doesn't move the needle.
-
 -   **Attending a webinar on productivity hacks:** Could be helpful, but not a guarantee of success.
-
 -   **Developing a killer sales funnel:** Directly impacts your conversion rates and revenue.
-
 -   **Streamlining your accounting and cash flow:** Essential for your business's financial health and growth.
 
 **So how can you differentiate between these two types of tasks?** Hunt-Davis suggests a three-pronged approach:
 
 1.  **Seek to eliminate:** If a task isn't crucial to your success, eliminate it. This might feel counterintuitive, as it often means saying "no" to requests and tasks that don't directly contribute to your goals. But remember, it's better to focus your energy on what matters most than to spread yourself thin.
-
 2.  **Seek to automate:** If a task is repetitive and doesn't require your unique skills, automate it. This could involve using software for email marketing, online scheduling, or basic bookkeeping tasks.
-
 3.  **Delegate the rest:** For tasks that can't be eliminated or automated, delegate to others. This means building a strong team that can handle the essential functions while you focus on strategy and growth.
 
 **The real key to achieving your goals is not busyness, but laser-focus.** This means prioritizing tasks that have a direct impact on your goals. You'll feel more focused, energized, and ultimately, more successful.
