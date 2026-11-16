@@ -10,7 +10,7 @@ In my previous article, "_[Understanding the Cause-and-Effect Timeframes: The De
 
 This leads us to a key concept, one that builds on this idea of long-term impact: **Prioritizing for speed, not just maintenance.**
 
-![](/assets/img/posts/does-it-make-the-boat-go-faster/1.jpg)
+![Eight rowers in red and white rowing in sync, oars striking the water together](/assets/img/posts/does-it-make-the-boat-go-faster/1.jpg)
 
 Think of your business, your career, or even your personal goals as a boat. We all tend to get caught up in the day-to-day maintenance of keeping things afloat, ensuring everything is running smoothly. But, the question that truly matters is: **Will it make the boat go faster?**
 
@@ -51,7 +51,7 @@ Hunt-Davis, an Olympic champion, asks this very question in his book "Will it ma
 
     This allowed them to focus on running strategic advertising campaigns and crafting compelling stories that resonated with their target audience.
 
-![](/assets/img/posts/does-it-make-the-boat-go-faster/2.png)
+![Black and white aerial shot of a rowing crew with the caption Will it make the boat go faster?](/assets/img/posts/does-it-make-the-boat-go-faster/2.png)
 
 **Don't get stuck in the routines of task achievement.** Always assess the importance of your tasks, and whether they help the boat move faster or not. By prioritizing for speed, you'll be able to make significant progress and leave a lasting impact.
 

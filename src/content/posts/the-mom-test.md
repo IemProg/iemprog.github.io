@@ -10,7 +10,7 @@ You've got a million-dollar idea. A SaaS product poised to revolutionize an indu
 
 In this article, I'll distill the key ideas I've learned from Fitzpatrick's work, and show you how to uncover the hidden truths about your product's potential.
 
-![](/assets/img/posts/the-mom-test/1.jpg)
+![Cartoon of a team assuming teenage girls would love their product, refusing to leave the room to ask any](/assets/img/posts/the-mom-test/1.jpg)
 
 The Mom Test isn't about finding validation; it's about unearthing the truth. It's about understanding the real problems your potential customers face, the solutions they've already tried, and what they'd be willing to pay for something better. Think of it as a detective's toolkit for uncovering the hidden desires and frustrations that drive your target market
 

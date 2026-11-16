@@ -26,7 +26,7 @@ This is wrong. And it took me embarrassingly long to see why.
 
 The problem isn’t motivation. It’s friction.
 
-![](/assets/img/posts/the-friction-model/1.jpg)
+![Behavior as water: an easy path flows to the phone while the important path is blocked by friction](/assets/img/posts/the-friction-model/1.jpg)
 
 **The Motivation Trap**
 

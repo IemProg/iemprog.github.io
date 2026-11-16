@@ -10,9 +10,33 @@ import { getPosts, formatDate } from '../lib/posts';
 const posts = (await getPosts()).slice(0, 3);
 const recentNews = NEWS.slice(0, 5);
 const olderNews = NEWS.slice(5);
+
+// Structured data so search engines can connect the profiles to one person.
+const person = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Imad Eddine Marouf',
+  url: 'https://iemprog.github.io/',
+  image: 'https://iemprog.github.io/assets/img/prof_pic_color.jpg',
+  jobTitle: 'AI Researcher',
+  description: 'AI researcher working on continual learning and the adaptation of pretrained vision and vision-language models.',
+  alumniOf: [
+    { '@type': 'CollegeOrUniversity', name: 'Télécom Paris, Institut Polytechnique de Paris' },
+    { '@type': 'CollegeOrUniversity', name: 'Sorbonne Université' },
+  ],
+  knowsAbout: ['Continual learning', 'Vision-language models', 'Model merging', 'Parameter-efficient fine-tuning'],
+  sameAs: [
+    'https://www.linkedin.com/in/iemprog/',
+    'https://scholar.google.com/citations?user=Z6xFbwQAAAAJ',
+    'https://github.com/IemProg',
+    'https://x.com/ImadMAROUF3',
+    'https://imadmarouf.substack.com',
+  ],
+};
 ---
 
 <Base>
+  <script type="application/ld+json" set:html={JSON.stringify(person)} />
   <section class="hero">
     <div class="hero-text">
       <h1>Imad Eddine Marouf</h1>

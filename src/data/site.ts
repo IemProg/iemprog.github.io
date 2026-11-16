@@ -5,6 +5,9 @@ export const SITE = {
     'AI researcher working on how models keep learning. Writing about research, building companies, and the long game.',
   contact: 'https://www.linkedin.com/in/iemprog/',
   newsletter: 'https://imadmarouf.substack.com',
+  // Visit statistics (GoatCounter, cookie-free). Set to your GoatCounter code, e.g. 'iemprog'
+  // for https://iemprog.goatcounter.com. Leave empty to disable tracking.
+  goatcounter: '',
 };
 
 export const LINKS = [

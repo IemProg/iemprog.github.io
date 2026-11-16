@@ -13,6 +13,8 @@ interface Props {
 const { title, description = SITE.description, image = '/og.png', imageAlt: imageAltProp, type = 'website' } = Astro.props;
 const fullTitle = title ? `${title} — ${SITE.name}` : SITE.title;
 const isDefaultImage = image === '/og.png';
+// Both the default card and the generated essay cards (src/pages/og/) are 1200x630.
+const isKnownSize = isDefaultImage || image.startsWith('/og/');
 const ogImage = new URL(image, Astro.site).href;
 const imageAlt =
   imageAltProp ??
@@ -40,8 +42,8 @@ const year = new Date().getFullYear();
     <meta property="og:url" content={canonical} />
     <meta property="og:site_name" content={SITE.name} />
     <meta property="og:image" content={ogImage} />
-    {isDefaultImage && <meta property="og:image:width" content="1200" />}
-    {isDefaultImage && <meta property="og:image:height" content="630" />}
+    {isKnownSize && <meta property="og:image:width" content="1200" />}
+    {isKnownSize && <meta property="og:image:height" content="630" />}
     <meta property="og:image:alt" content={imageAlt} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@ImadMAROUF3" />
@@ -68,6 +70,16 @@ const year = new Date().getFullYear();
           document.documentElement.setAttribute('data-theme', 'dark');
       } catch (e) {}
     </script>
+    {
+      SITE.goatcounter && import.meta.env.PROD && (
+        <script
+          is:inline
+          data-goatcounter={`https://${SITE.goatcounter}.goatcounter.com/count`}
+          async
+          src="//gc.zgo.at/count.js"
+        />
+      )
+    }
   </head>
   <body>
     <div class="wrap">

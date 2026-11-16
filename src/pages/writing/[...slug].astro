@@ -15,7 +15,13 @@ const minutes = readingTime(post.body);
 const tag = primaryTag(post);
 ---
 
-<Base title={post.data.title} description={post.data.description} type="article">
+<Base
+  title={post.data.title}
+  description={post.data.description}
+  type="article"
+  image={`/og/${post.id}.png`}
+  imageAlt={`${post.data.title}: an essay by Imad Eddine Marouf`}
+>
   <article>
     <header class="post-header">
       <h1>{post.data.title}</h1>

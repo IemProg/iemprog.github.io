@@ -10,7 +10,7 @@ Why is the internet full of failure stories?
 
 “10 mistakes that ruined my health.” “What I learned from my failed marriage.” “Why I dropped out.” Post-mortems everywhere.
 
-![](/assets/img/posts/the-search-space-problem/1.webp)
+![Branching paths from a start point, most ending in red crosses, one highlighted path reaching the goal](/assets/img/posts/the-search-space-problem/1.webp)
 
 Success stories are rarer. Quieter. Harder to find.
 

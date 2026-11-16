@@ -94,7 +94,7 @@ Strava shows your streak. Run every day, the number goes up. Miss a day, it rese
 
 This seems like a trivial UI element. It’s not. It’s a commitment device.
 
-![](/assets/img/posts/the-sixth-attempt/1.jpg)
+![Strava progress screen showing a 6-week streak and 35 streak activities on a December calendar](/assets/img/posts/the-sixth-attempt/1.jpg)
 
 On day 5, missing a run costs you 5 days. On day 20, it costs you 20 days. The cost of quitting increases linearly with time, while the cost of continuing stays constant—just one more run.
 

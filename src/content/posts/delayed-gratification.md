@@ -12,7 +12,7 @@ Think of it like this:
 
 Imagine two graphs. One represents your memory of the work you put in, and the other represents the effects of that work.
 
-![](/assets/img/posts/delayed-gratification/1.png)
+![Graph of returns over time: memory of the work decays while its effect grows, the curves crossing midway](/assets/img/posts/delayed-gratification/1.png)
 
 The memory graph starts high, because you remember what you did today. You can vividly recall that late-night brainstorming session, that intense sales call, or that long, arduous research project. It's fresh in your mind, and you feel the effort you put in. But, as time passes, your memory fades. You might remember the general gist of what you did, but the details blur. The effort you put in feels like a distant memory. You might even start to believe that the results you're seeing now are directly linked to the work you did yesterday, or the week before.
 

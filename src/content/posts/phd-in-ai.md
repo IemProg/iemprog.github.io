@@ -108,7 +108,7 @@ Second, pick your battles. You cannot compete with Google or OpenAI on compute. 
 
 There is a trap worth naming, especially if you come from a software engineering background.
 
-![](/assets/img/posts/phd-in-ai/1.webp)
+![Two donut charts: time spent on clean code and pipelines versus what mattered, running experiments fast and writing](/assets/img/posts/phd-in-ai/1.webp)
 
 The temptation is to build things properly. Clean code. Scalable pipelines. Good architecture. Early in my PhD, I spent weeks building a perfect experimental setup before running a single meaningful experiment. I was proud of that codebase. It was elegant, modular, well-documented.
 
@@ -251,7 +251,7 @@ If your lab offers to send you to a conference, go. Even if you do not have a pa
 
 Almost everyone goes through a difficult first year. Almost nobody talks about it openly.
 
-![](/assets/img/posts/phd-in-ai/2.webp)
+![Three-year PhD emotional curve: a first-year trough of dead ideas and imposter syndrome, rising to would do it again](/assets/img/posts/phd-in-ai/2.webp)
 
 There is a period, usually in the first year, where you feel stuck. Your first ideas do not work. Or they work but not well enough to publish. You watch other people making progress and start wondering if you made a mistake. A year in, nothing to show for it, not sure this is going anywhere.
 
@@ -298,6 +298,6 @@ It does not just make you a researcher. It builds a kind of steadiness that carr
 
 I am still in the middle of it. Still figuring things out, still making mistakes. But if you are thinking about starting, or if you are already in it and feeling the weight of it, I hope something here helped.
 
-If this resonated, I write about research, building, and what it actually looks like to do both at once. You can follow along here.
+If this resonated, I write about research, building, and what it actually looks like to do both at once. You can [follow along here](https://imadmarouf.substack.com/subscribe).
 
 —Imad

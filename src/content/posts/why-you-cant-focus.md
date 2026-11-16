@@ -6,7 +6,7 @@ tags: ["life"]
 originalUrl: "https://imadmarouf.substack.com/p/why-you-cant-focus-its-not-a-discipline"
 ---
 
-![](/assets/img/posts/why-you-cant-focus/1.webp)
+![Attention architecture: notifications and distractions scatter around a head, a maze filters them into one focused beam](/assets/img/posts/why-you-cant-focus/1.webp)
 
 **I**f you’re anything like me, you believe that focus is about willpower.
 

@@ -18,7 +18,7 @@ Philip Tetlock tracked expert predictions for 20 years ([Link](https://press.pri
 
 They barely outperformed coin flips.
 
-![](/assets/img/posts/most-confident-about/1.jpg)
+![Bar chart: expert forecasters at 53 percent accuracy versus a coin flip at 50 percent, from Tetlock](/assets/img/posts/most-confident-about/1.jpg)
 
 The better predictors weren’t the most credentialed or the most certain. They were the ones hardest to pin down — lots of small ideas, held loosely, revised often. Tetlock called them foxes, borrowing from [Isaiah Berlin’s taxonomy](https://press.princeton.edu/books/paperback/9780691156002/the-hedgehog-and-the-fox). The people built around one confident framework — hedgehogs — were the worst forecasters in the study. Not slightly worse. Significantly worse. The experts most certain about their understanding were the least accurate about the world.
 
@@ -26,7 +26,7 @@ The reason is structural. The hedgehog’s one big idea is also their lens for e
 
 The framework is never disconfirmed. It just accumulates more elaborations. Confidence grows. Accuracy doesn’t.
 
-![](/assets/img/posts/most-confident-about/2.jpg)
+![Fox versus hedgehog: many ideas held loosely give better forecasts, one big idea held tightly gives worse](/assets/img/posts/most-confident-about/2.jpg)
 
 [Kahneman](http://\(https://us.macmillan.com/books/9780374533557/thinkingfastandslow/\)) formalised the underlying mechanism: WYSIATI : what you see is all there is. The mind doesn’t search for what’s missing. It takes available evidence, constructs the most coherent story it can, and declares itself confident.
 

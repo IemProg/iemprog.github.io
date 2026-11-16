@@ -34,7 +34,7 @@ This is a correct diagnosis pointing at the wrong prescription.
 
 Distribution is not the moat. It is the ticket that gets you into the room where moats get built.
 
-![](/assets/img/posts/distribution-is-the-ticket/1.webp)
+![Timeline of closed attention arbitrage windows, Facebook ads to TikTok organic, each lasting 3 to 5 years, with clipping now open](/assets/img/posts/distribution-is-the-ticket/1.webp)
 
 In the short term, the two feel identical. A consumer app with a creator flywheel doing eight figures in revenue looks defensible from the outside. Zoom out by a few years and the picture changes. Every major attention arbitrage of the last fifteen years has opened, saturated, and closed inside a three to five year window.
 
@@ -68,7 +68,7 @@ That is the move a founder should be copying. Not the clipping campaign.
 
 ## Distribution is the shortest-lived moat on the board.
 
-![](/assets/img/posts/distribution-is-the-ticket/2.webp)
+![Moats ranked by durability: network effects longest, then workflow, data, trust, taste, and distribution with the shortest half-life](/assets/img/posts/distribution-is-the-ticket/2.webp)
 
 “Distribution is the only moat” is a strong tweet and a weak strategy. Put distribution next to the other candidates and its position becomes obvious.
 

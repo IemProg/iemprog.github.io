@@ -16,7 +16,7 @@ The plan and your actual capacity look identical from the inside.
 
 The only way to see the difference is to remove the scaffolding.
 
-![](/assets/img/posts/underprepared-execution/1.jpg)
+![Prepared execution shows plan and capacity overlapping; underprepared execution leaves only actual capacity visible](/assets/img/posts/underprepared-execution/1.jpg)
 
 That’s what underprepared execution does. Without the plan, you have to think in real time, under load, with no fallback. And what’s left when the automatic version isn’t available is what you actually have. Not what you trained for. Not what you planned. What’s encoded.
 
@@ -36,7 +36,7 @@ Prepared execution tells you what’s possible when everything is in place.
 
 Underprepared execution tells you what’s actually there, unfiltered, unassisted, yours.
 
-![](/assets/img/posts/underprepared-execution/2.jpg)
+![Table contrasting declarative knowing, available when conditions are good, with procedural encoded skill, available when bad](/assets/img/posts/underprepared-execution/2.jpg)
 
 You don’t need to seek out underprepared situations. You just need to stop treating them as failures when they happen.
 
