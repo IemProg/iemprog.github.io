@@ -1,7 +1,8 @@
 ---
 import Base from '../layouts/Base.astro';
-import { SITE, LINKS } from '../data/site';
+import { SITE } from '../data/site';
 import { EXPERIENCE, EDUCATION } from '../data/experience';
+import Socials from '../components/Socials.astro';
 ---
 
 <Base title="About" description="About Imad Eddine Marouf, AI researcher and co-founder of CurriboxAI.">
@@ -32,6 +33,7 @@ import { EXPERIENCE, EDUCATION } from '../data/experience';
       The best way to reach me is on <a href={SITE.contact} rel="noopener">LinkedIn</a>. I'm happy to talk about
       research, collaborations, or anything I've written.
     </p>
+    <Socials />
   </div>
 
   <section class="section">
@@ -70,17 +72,4 @@ import { EXPERIENCE, EDUCATION } from '../data/experience';
     </ul>
   </section>
 
-  <section class="section">
-    <div class="section-head"><h2 class="label">Elsewhere</h2></div>
-    <ul class="rows">
-      {
-        LINKS.map((l) => (
-          <li>
-            <a href={l.url} rel="noopener">{l.label}</a>
-            <span class="meta">{new URL(l.url).hostname.replace('www.', '')}</span>
-          </li>
-        ))
-      }
-    </ul>
-  </section>
 </Base>

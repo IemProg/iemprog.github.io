@@ -11,6 +11,7 @@ export const LINKS = [
   { label: 'Scholar', url: 'https://scholar.google.com/citations?user=Z6xFbwQAAAAJ&hl=fr' },
   { label: 'GitHub', url: 'https://github.com/IemProg' },
   { label: 'LinkedIn', url: 'https://www.linkedin.com/in/iemprog/' },
+  { label: 'Twitter', url: 'https://x.com/ImadMAROUF3' },
   { label: 'Newsletter', url: 'https://imadmarouf.substack.com' },
 ];
 
